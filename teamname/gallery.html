@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Meta charset and viewport -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Ocean Conservation | OceanGuard</title>
+    <meta name="description"
+        content="Explore our gallery of ocean conservation images. View marine life, coral reefs, and ocean protection efforts.">
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ===== Header with Glassmorphism Navigation ===== -->
+    <header>
+        <div class="header-container">
+            <!-- Logo -->
+            <div class="logo">
+                <h1>🌊 OceanGuard</h1>
+                <p class="tagline">Protecting Our Oceans Together</p>
+            </div>
+            <!-- Navigation Bar -->
+            <nav aria-label="Main Navigation">
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <!-- Active class on Gallery -->
+                    <li><a href="gallery.html" class="active">Gallery</a></li>
+                    <li><a href="ais.html">Action Impact Simulator</a></li>
+                    <li><a href="feedback.html">Feedback</a></li>
+                    <li><a href="team.html">Team</a></li>
+                    <li><a href="sitemap.html">Sitemap</a></li>
+                </ul>
+            </nav>
+            <!-- User Profile Icon -->
+            <a href="profile.html" class="profile-icon" aria-label="User Profile" title="User Profile">👤 Profile</a>
+        </div>
+    </header>
+
+    <!-- ===== Main Content ===== -->
+    <main id="main-content">
+
+        <!-- Hero Banner -->
+        <section class="hero" aria-label="Gallery banner">
+            <h1>Ocean Conservation Gallery</h1>
+            <p>Explore stunning images of marine life and ocean conservation efforts. Click any image for a closer
+                look.</p>
+        </section>
+
+
+
+        <!-- ===== Gallery Grid ===== -->
+        <section aria-label="Image gallery">
+            <h2 class="section-title">Marine Life &amp; Conservation</h2>
+
+            <div class="gallery-grid" id="galleryGrid">
+
+                <!-- Gallery Item 1: Coral Reef -->
+                <div class="gallery-item" data-title="Vibrant Coral Reef Ecosystem"
+                    data-description="Coral reefs support roughly 25% of all marine species despite covering less than 1% of the ocean floor. Climate change, ocean acidification, and pollution threaten reefs worldwide."
+                    data-image="images/coral_reef.webp">
+                    <img src="images/coral_reef.webp"
+                        alt="Colourful coral reef with diverse tropical fish and marine plants in warm shallow waters">
+                    <div class="caption">
+                        <h3>Coral Reef Ecosystem</h3>
+                        <p>Diverse marine life thriving in a healthy reef</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 2: Sea Turtle -->
+                <div class="gallery-item" data-title="Green Sea Turtle Migration"
+                    data-description="Green sea turtles travel thousands of kilometres between feeding grounds and nesting beaches. They face threats from plastic pollution, fishing nets, and habitat loss."
+                    data-image="images/sea_turtle.webp">
+                    <img src="images/sea_turtle.webp"
+                        alt="A green sea turtle swimming gracefully through clear blue ocean water">
+                    <div class="caption">
+                        <h3>Green Sea Turtle</h3>
+                        <p>Graceful sea turtle gliding through the ocean</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 3: Ocean Cleanup -->
+                <div class="gallery-item" data-title="Community Beach Cleanup"
+                    data-description="Beach cleanups are one of the most direct ways communities can protect marine environments. Volunteers around the world remove tonnes of plastic and debris from coastlines every year."
+                    data-image="images/ocean_cleanup.webp">
+                    <img src="images/ocean_cleanup.webp"
+                        alt="Group of volunteers picking up plastic waste and debris during a beach cleanup event">
+                    <div class="caption">
+                        <h3>Beach Cleanup Effort</h3>
+                        <p>Volunteers making a difference in their community</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 4: Marine Wildlife -->
+                <div class="gallery-item" data-title="Marine Wildlife Diversity"
+                    data-description="Our oceans are home to incredible diversity of life. Marine biodiversity is essential for healthy ecosystems that provide food, regulate climate, and support livelihoods for billions."
+                    data-image="images/marine_wildlife.webp">
+                    <img src="images/marine_wildlife.webp"
+                        alt="Diverse marine wildlife including tropical fish and sea creatures in their natural ocean habitat">
+                    <div class="caption">
+                        <h3>Marine Biodiversity</h3>
+                        <p>The incredible diversity of ocean life</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 5: Plastic Pollution -->
+                <div class="gallery-item" data-title="The Plastic Crisis in Our Oceans"
+                    data-description="Approximately 8 million metric tonnes of plastic waste enter the ocean every year. Reducing single-use plastics and improving waste management are critical solutions."
+                    data-image="images/plastic_pollution.webp">
+                    <img src="images/plastic_pollution.webp"
+                        alt="Plastic bottles, bags and waste floating in polluted ocean water near the surface">
+                    <div class="caption">
+                        <h3>Plastic Pollution</h3>
+                        <p>The devastating impact of plastic waste</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 6: Underwater Scene -->
+                <div class="gallery-item" data-title="Underwater Kelp Forest"
+                    data-description="Kelp forests are among the most productive ecosystems on Earth. They provide shelter and food for hundreds of marine species and also absorb carbon dioxide."
+                    data-image="images/underwater_scene.webp">
+                    <img src="images/underwater_scene.webp"
+                        alt="Sunlight filtering through a dense underwater kelp forest with fish swimming between the fronds">
+                    <div class="caption">
+                        <h3>Kelp Forest</h3>
+                        <p>A vital underwater ecosystem</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ===== Modal Popup ===== -->
+    <!-- Hidden by default, shown when user clicks an image -->
+    <div class="modal-overlay" id="imageModal">
+        <div class="modal-content">
+            <!-- Close Button -->
+            <button class="modal-close" id="modalClose">&times;</button>
+            <!-- Image (set by JavaScript) -->
+            <img id="modalImage" src="" alt="">
+            <!-- Title and Description -->
+            <h2 id="modalTitle"></h2>
+            <p id="modalDescription"></p>
+        </div>
+    </div>
+
+    <!-- ===== Footer ===== -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <p class="sdg-label">SUSTAINABLE<br>DEVELOPMENT</p>
+                <p class="sdg-goals">G&#127760;ALS</p>
+            </div>
+            <div class="footer-editors">
+                <h3>Page Editors</h3>
+                <a href="pageEditor_ST1.html">Student 1</a>
+                <a href="pageEditor_ST2.html">Student 2</a>
+                <a href="pageEditor_ST3.html">Student 3</a>
+                <a href="pageEditor_ST4.html">Student 4</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== Simple Gallery JavaScript ===== -->
+    <script>
+        /* ============================================================
+           Gallery JavaScript (Simple & Beginner Friendly)
+           - Click an image to open a modal popup
+           - Close modal with the X button or by clicking outside
+           ============================================================ */
+
+        // Step 1: Get all gallery items from the page
+        var galleryItems = document.querySelectorAll('.gallery-item');
+
+        // Step 2: Get modal elements
+        var modal = document.getElementById('imageModal');
+        var modalImage = document.getElementById('modalImage');
+        var modalTitle = document.getElementById('modalTitle');
+        var modalDescription = document.getElementById('modalDescription');
+        var modalClose = document.getElementById('modalClose');
+
+        // Step 3: Add click event to each gallery item
+        // When clicked, open the modal and show the larger image
+        galleryItems.forEach(function (item) {
+            item.addEventListener('click', function () {
+                // Get data from the clicked item
+                var title = item.getAttribute('data-title');
+                var description = item.getAttribute('data-description');
+                var imageSrc = item.getAttribute('data-image');
+                var imageAlt = item.querySelector('img').getAttribute('alt');
+
+                // Put data into the modal
+                modalImage.src = imageSrc;
+                modalImage.alt = imageAlt;
+                modalTitle.textContent = title;
+                modalDescription.textContent = description;
+
+                // Show the modal
+                modal.classList.add('active');
+            });
+        });
+
+        // Step 4: Close modal when X button is clicked
+        modalClose.addEventListener('click', function () {
+            modal.classList.remove('active');
+        });
+
+        // Step 5: Close modal when clicking outside the content
+        modal.addEventListener('click', function (event) {
+            if (event.target === modal) {
+                modal.classList.remove('active');
+            }
+        });
+    </script>
+
+</body>
+
+</html>
