@@ -10,6 +10,83 @@
         content="Explore our gallery of ocean conservation images. View marine life, coral reefs, and ocean protection efforts.">
     <!-- Global CSS -->
     <link rel="stylesheet" href="style.css">
+
+    <!-- ===== Embedded CSS – Gallery Page Specific Styles ===== -->
+    <style>
+        /* Gallery Page specific styling as required */
+        body {
+            /* Applying a subtle background color shift specific to gallery */
+            background-color: rgb(15, 60, 110);
+        }
+
+        .hero {
+            /* Override hero gradient for unique gallery look */
+            background: linear-gradient(135deg, #001f54 0%, #034078 50%, #0a1128 100%);
+            border-bottom: 3px solid #48cae4;
+        }
+
+        /* Customize modal styling for user customization features */
+        .color-controls, .font-controls {
+            padding: 0 32px 16px;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .color-controls span, .font-controls span {
+            font-size: 14px;
+            font-weight: bold;
+            color: #03045e;
+            width: 110px;
+        }
+
+        .dark-theme .color-controls span, .dark-theme .font-controls span {
+            color: #48cae4;
+        }
+
+        .color-controls button, .font-controls button {
+            padding: 6px 14px;
+            border: 1px solid #0077b6;
+            background: #f8f9fa;
+            color: #03045e;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 13px;
+            transition: all 0.3s ease;
+        }
+
+        .color-controls button:hover, .font-controls button:hover {
+            background: #0077b6;
+            color: #fff;
+        }
+        
+        /* Modal extended view themes */
+        .modal-content.dark-theme {
+            background: #121212;
+            color: #f1f1f1;
+            border: 1px solid #333;
+        }
+        .modal-content.dark-theme h2, .modal-content.dark-theme p {
+            color: #e0e0e0;
+        }
+        .modal-content.dark-theme h2::after {
+            background: linear-gradient(90deg, #48cae4, #90e0ef);
+        }
+
+        .modal-content.font-serif h2 {
+            font-family: 'Playfair Display', serif;
+        }
+        .modal-content.font-serif p {
+            font-family: 'Georgia', serif;
+        }
+        
+        /* Hover visual indication (class added by JS) */
+        .js-hover {
+            transform: scale(1.03) !important;
+            box-shadow: 0 0 15px rgba(72, 202, 228, 0.6) !important;
+            border-color: #48cae4 !important;
+        }
+    </style>
 </head>
 
 <body>
@@ -136,14 +213,26 @@
     <!-- ===== Modal Popup ===== -->
     <!-- Hidden by default, shown when user clicks an image -->
     <div class="modal-overlay" id="imageModal">
-        <div class="modal-content">
+        <div class="modal-content" id="modalContentNode">
             <!-- Close Button -->
-            <button class="modal-close" id="modalClose">&times;</button>
+            <button class="modal-close" id="modalClose" aria-label="Close extended view">&times;</button>
             <!-- Image (set by JavaScript) -->
             <img id="modalImage" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" alt="Modal Image Placeholder">
             <!-- Title and Description -->
             <h2 id="modalTitle">Image Details</h2>
             <p id="modalDescription"></p>
+
+            <!-- User Customisation Controls (JS requirements) -->
+            <div class="font-controls">
+                <span>Font Style:</span>
+                <button type="button" id="btnFontSans">Sans Serif</button>
+                <button type="button" id="btnFontSerif">Serif</button>
+            </div>
+            <div class="color-controls">
+                <span>Color Scheme:</span>
+                <button type="button" id="btnThemeLight">Light Theme</button>
+                <button type="button" id="btnThemeDark">Dark Theme</button>
+            </div>
         </div>
     </div>
 
@@ -157,6 +246,12 @@
                     <p class="sdg-label">SUSTAINABLE<br>DEVELOPMENT</p>
                     <p class="sdg-goals">G&#127760;ALS</p>
                 </div>
+            </div>
+            <!-- Middle: Info Links -->
+            <div class="footer-editors">
+                <h3>Information</h3>
+                <a href="validation_ST1.html">Validation (ST1)</a>
+                <a href="accessibility.html">Accessibility</a>
             </div>
             <!-- Right Side: Editors -->
             <div class="footer-editors">
@@ -176,53 +271,83 @@
     <!-- ===== Simple Gallery JavaScript ===== -->
     <script>
         /* ============================================================
-           Gallery JavaScript (Simple & Beginner Friendly)
-           - Click an image to open a modal popup
-           - Close modal with the X button or by clicking outside
+           Gallery JavaScript
+           - Hover interaction via JS event listeners
+           - Click to expand (modal popup)
+           - Close modal (X button or outside click)
+           - User customisation for font/color inside modal
            ============================================================ */
 
-        // Step 1: Get all gallery items from the page
+        // Step 1: Get elements
         var galleryItems = document.querySelectorAll('.gallery-item');
-
-        // Step 2: Get modal elements
         var modal = document.getElementById('imageModal');
+        var modalContent = document.getElementById('modalContentNode');
         var modalImage = document.getElementById('modalImage');
         var modalTitle = document.getElementById('modalTitle');
         var modalDescription = document.getElementById('modalDescription');
         var modalClose = document.getElementById('modalClose');
 
-        // Step 3: Add click event to each gallery item
-        // When clicked, open the modal and show the larger image
+        // Step 2: Add hover & click events to each gallery item
         galleryItems.forEach(function (item) {
+            
+            // Hover interaction logic (JS based as required)
+            item.addEventListener('mouseenter', function() {
+                item.classList.add('js-hover');
+            });
+            item.addEventListener('mouseleave', function() {
+                item.classList.remove('js-hover');
+            });
+
+            // Click-to-expand logic
             item.addEventListener('click', function () {
-                // Get data from the clicked item
                 var title = item.getAttribute('data-title');
                 var description = item.getAttribute('data-description');
                 var imageSrc = item.getAttribute('data-image');
                 var imageAlt = item.querySelector('img').getAttribute('alt');
 
-                // Put data into the modal
                 modalImage.src = imageSrc;
                 modalImage.alt = imageAlt;
                 modalTitle.textContent = title;
                 modalDescription.textContent = description;
 
-                // Show the modal
                 modal.classList.add('active');
             });
         });
 
-        // Step 4: Close modal when X button is clicked
+        // Step 3: Close modal 
         modalClose.addEventListener('click', function () {
             modal.classList.remove('active');
         });
 
-        // Step 5: Close modal when clicking outside the content
         modal.addEventListener('click', function (event) {
             if (event.target === modal) {
                 modal.classList.remove('active');
             }
         });
+
+        // Step 4: User Customisation Controls
+        var btnFontSans = document.getElementById('btnFontSans');
+        var btnFontSerif = document.getElementById('btnFontSerif');
+        var btnThemeLight = document.getElementById('btnThemeLight');
+        var btnThemeDark = document.getElementById('btnThemeDark');
+
+        if (btnFontSans && btnFontSerif && btnThemeLight && btnThemeDark) {
+            btnFontSans.addEventListener('click', function() {
+                modalContent.classList.remove('font-serif');
+            });
+
+            btnFontSerif.addEventListener('click', function() {
+                modalContent.classList.add('font-serif');
+            });
+
+            btnThemeLight.addEventListener('click', function() {
+                modalContent.classList.remove('dark-theme');
+            });
+
+            btnThemeDark.addEventListener('click', function() {
+                modalContent.classList.add('dark-theme');
+            });
+        }
     </script>
 
 </body>
