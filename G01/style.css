@@ -1079,7 +1079,10 @@ tbody tr:hover {
     border-width: 0;
 }
 
-/*St4 */
+/* ==================== ST4 - PROFILE PAGE STYLES ==================== */
+/* Styles for the user profile card component - displays user information and stats */
+
+/* Main profile card container */
 .profile-card {
     background-color: white;
     padding: 30px;
@@ -1089,6 +1092,7 @@ tbody tr:hover {
     max-width: 750px;
 }
 
+/* Profile section styling - for editable sections within the profile */
 .profile-section {
     display: none;
     background-color: white;
@@ -1100,7 +1104,9 @@ tbody tr:hover {
     border: 1px solid rgba(144, 224, 239, 0.3);
 }
 
+/* Progress bar for tracking user achievements or profile completion */
 
+/* Background track for the progress bar */
 #progress-bar-background {
     background-color: #caf0f8;
     border-radius: 50px;
@@ -1110,13 +1116,16 @@ tbody tr:hover {
     margin-bottom: 10px;
 }
 
+/* Filled portion of the progress bar - animates width changes */
 #progress-bar-fill {
     background: linear-gradient(90deg, #0077b6, #00b4d8);
     height: 100%;
     width: 0%;
     transition: width 0.5s ease;
+        /* Smooth animation when width changes */
 }
 
+/* Styles for locked achievements/features and edit buttons */
 .lock {
     font-size: 11px;
     font-weight: bold;
@@ -1126,6 +1135,7 @@ tbody tr:hover {
     color: #999;
 }
 
+/* Edit button for profile sections - allows inline editing */
 .edit-btn {
     display: inline-block;
     background-color: white;
@@ -1138,10 +1148,12 @@ tbody tr:hover {
     font-size: 12px;
 }
 
+/* Hover effect for edit button */
 .edit-btn:hover {
     background-color: #f0faf9;
 }
 
+/* Section heading with flexible layout */
 .section-top {
     display: flex;
     justify-content: space-between;
@@ -1149,4 +1161,101 @@ tbody tr:hover {
     margin-bottom: 12px;
     padding-bottom: 10px;
     border-bottom: 1px solid #caf0f8;
+}
+/* Reset button - allows resetting profile data to default values */
+.reset-btn {
+    padding: 12px 24px;
+    margin-top: 10px;
+    background-color: #f9e6e3;
+    border: 1px solid #fcc5c1;
+    border-radius: 10px;
+    color: #bb2905;
+    font-weight: bold;
+
+}
+
+/* Hover effect for reset button*/
+.reset-btn:hover {
+    background-color: #f9cbcb;
+    cursor: pointer
+}
+
+
+
+/* ==================== SVG SITEMAP STYLES (St4) ==================== */
+/* Styles for the interactive site map diagram - visual navigation structure */
+
+/* Container that holds the SVG sitemap diagram */
+.sitemapContainer {
+    padding: 20px;
+    text-align: center;
+    margin-top: 20px;
+    max-width: 100%;
+    /* Stops the box from growing wider than the screen */
+    overflow-x: auto;
+    /* Adds a neat little scrollbar ONLY if the screen is too small */
+}
+
+
+
+/* Connection lines between nodes in the sitemap */
+.line {
+    stroke: #96eaf9;
+    stroke-width: 5;
+    stroke-linecap: round;
+    /* FIXES THE CORNERS */
+}
+
+
+
+/* Default rectangle styling for all node boxes */
+.node rect {
+    fill: #0ba8c8;
+    rx: 15px;
+    ry: 15px;
+}
+
+/* Special styling for home and splash screen nodes - different color for emphasis */
+.node-home-splash rect {
+    fill: #03045e;
+}
+
+/* Text styling inside node boxes */
+.node text {
+    fill: #ffffff;
+    font-weight: 600;
+    font-size: 16px;
+    text-anchor: middle;
+    dominant-baseline: middle;
+}
+
+/*hover effect */
+.node:hover rect {
+    fill: #006195;
+}
+
+/* Secondary category nodes (Content Pages, Page Editors, Validation Pages) */
+.node-parent2 rect {
+    fill: #036ca4;
+    rx: 15px;
+    ry: 15px;
+}
+
+
+/* Hover effect for parent2 nodes - no cursor change as they're non-clickable */
+.node-parent2:hover rect {
+    fill: #036ca4;
+    cursor: default;
+
+}
+
+/* Child nodes - individual pages under each category */
+.node-child rect {
+    fill: #ade8f4;
+}
+
+/* Text styling for child nodes - darker text for better contrast on light background */
+.node-child text {
+    fill: #03045e;
+    font-weight: 600;
 }
