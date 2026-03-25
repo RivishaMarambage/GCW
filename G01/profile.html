@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile | OceanGuard</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <h1>🌊 OceanGuard</h1>
+                <p class="tagline">Protecting Our Oceans Together</p>
+            </div>
+            <nav aria-label="Main Navigation">
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="ais.html">Action Impact Simulator</a></li>
+                    <li><a href="feedback.html">Feedback</a></li>
+                    <li><a href="team.html">Team</a></li>
+                    <li><a href="sitemap.html">Sitemap</a></li>
+                </ul>
+            </nav>
+            <a href="profile.html" class="profile-icon active" aria-label="User Profile">👤 Profile</a>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <div class="profile-card">
+            <h2 class="section-title" style="color: #03045e;">Build Your Ocean Guardian Profile</h2>
+            <p style="text-align: center; margin-bottom: 20px;">Complete these steps to showcase your contribution to marine conservation.</p>
+            
+            <div id="progress-container">
+                <p><strong>Profile Completion: <span id="precent">0%</span></strong></p>
+                <div id="progress-bar-background">
+                    <div id="progress-bar-fill"></div>
+                </div>
+            </div>
+
+            <p id="step-labels" style="font-size: 13px; color: #666; margin-bottom: 20px;">Step 1: Not started | Step 2: Not started | Step 3: Not started</p>
+    
+            <button class="btn" onclick="step1()">Step 1: Personal Details</button>
+            <button class="btn" onclick="step2()">Step 2: Marine Interests</button>
+            <button class="btn" onclick="step3()">Step 3: Marine Actions</button>
+            <button class="btn btn-secondary" onclick="resetAll()">Reset</button>
+            
+            <p id="status-msg" style="display:none; margin-top:14px; padding:12px; background-color:#f0faf9; border:1px solid #b2dbd9; border-radius:8px; font-size:14px;"></p>
+        </div>
+    
+        <div id="step1-personal" class="profile-section">
+            <div class="section-top">
+                <h3>Personal Details</h3>
+                <div class="top-right">   
+                    <button class="edit-btn" id="edit1" onclick="step1()">Edit</button>
+                    <span id="lock1" class="lock">LOCKED</span>
+                </div>
+            </div>
+            <p id="name"></p>
+            <p id="age"></p>
+            <p id="email"></p>
+        </div>
+
+        <div id="step2-interest" class="profile-section">
+            <div class="section-top">
+                <h3>Interests</h3>
+                <div class="top-right">
+                    <button class="edit-btn" id="edit2" onclick="step2()">Edit</button>
+                    <span id="lock2" class="lock">LOCKED</span>
+                </div>
+            </div>
+            <p id="interest"></p>
+            <p id="species"></p>
+            <p id="experience"></p>
+        </div>
+
+        <div id="step3-action" class="profile-section">
+            <div class="section-top">
+                <h3>Action</h3>
+                <div class="top-right">
+                    <button class="edit-btn" id="edit3" onclick="step3()">Edit</button>
+                    <span id="lock3" class="lock">LOCKED</span>
+                </div>
+            </div>
+            <p id="action"></p>
+            <p id="donation"></p>
+            <p id="futureGoal"></p>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <p class="sdg-label">SUSTAINABLE<br>DEVELOPMENT</p>
+                <p class="sdg-goals">G&#127760;ALS</p>
+            </div>
+            <div class="footer-editors">
+                <h3>Page Editors</h3>
+                <a href="pageEditor_ST1.html">Student 1</a>
+                <a href="pageEditor_ST2.html">Student 2</a>
+                <a href="pageEditor_ST3.html">Student 3</a>
+                <a href="pageEditor_ST4.html">Student 4</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>  
+        let count1 = 0;
+        let count2 = 0;
+        let count3 = 0;
+
+        function step1(){
+            count1=0;
+            document.getElementById("step1-personal").style.display = "block";
+            let skipCount1=0;
+            let userName = prompt("Step 1 of 3: What is your name?");
+            let userAge = prompt("Step 1 of 3: What is your age?");
+            let userEmail = prompt("Step 1 of 3: What is your email?");
+
+            if (userName != "" && userName != null) {
+                document.getElementById("name").innerHTML = "<b>Name:</b> " + userName;
+                count1+=1;
+            } else {
+                document.getElementById("name").innerHTML = "";
+                skipCount1+=1;
+            }
+
+            if (userAge != "" && userAge != null) {
+                document.getElementById("age").innerHTML = "<b>Age:</b> " + userAge;
+                count1+=1;
+            } else {
+                document.getElementById("age").innerHTML = "";
+                skipCount1+=1;
+            }
+            
+            if (userEmail != "" && userEmail != null) {
+                document.getElementById("email").innerHTML = "<b>Email:</b> " + userEmail;
+                count1+=1;
+            } else {
+                document.getElementById("email").innerHTML = "";
+                skipCount1+=1;
+            }
+
+            if(skipCount1==0){
+                document.getElementById("lock1").innerHTML = "completed &check;";
+                document.getElementById("lock1").style.backgroundColor = "#d4f0ee";
+                document.getElementById("lock1").style.color = "#0e7c7b";
+            }else{
+                document.getElementById("lock1").innerHTML = "Information skipped";
+                document.getElementById("lock1").style.backgroundColor = "#fff0cc";
+                document.getElementById("lock1").style.color = "#b07000";
+            }
+            updateProgress(1);
+        }   
+
+        function step2(){
+            document.getElementById("step2-interest").style.display = "block";  
+            count2=0; 
+            let skipCount2=0;
+            let userInterest=prompt("Step 1 of 2: What is your main marine interest? (e.g., Coral Reefs, Plastic Pollution,..)");
+            let userSpecies = prompt("Step 2 of 2: What is your favorite marine species?");
+            let userExperience = prompt("Step 3 of 2: How many years have you been interested in marine conservation?");    
+            
+            if(userInterest !="" && userInterest !=null){
+                document.getElementById("interest").innerHTML="<b>Habitat:</b> " + userInterest;
+                count2+=1;
+            }else{
+                document.getElementById("interest").innerHTML= "";
+                skipCount2+=1;
+            }
+
+            if( userSpecies!="" &&  userSpecies!=null){
+                document.getElementById("species").innerHTML="<b>Species:</b> " + userSpecies;
+                count2+=1;
+            }else{
+                document.getElementById("species").innerHTML= "";
+                skipCount2+=1;
+            }
+
+            if( userExperience!="" &&  userExperience!=null){
+                document.getElementById("experience").innerHTML="<b>Experience:</b> " + userExperience;
+                count2+=1;
+            }else{
+                document.getElementById("experience").innerHTML= "";
+                skipCount2+=1;
+            } 
+
+            if(skipCount2==0){
+                document.getElementById("lock2").innerHTML = "completed &check;";
+                document.getElementById("lock2").style.backgroundColor = "#d4f0ee";
+                document.getElementById("lock2").style.color = "#0e7c7b";
+            }else{
+                document.getElementById("lock2").innerHTML = "Information skipped";
+                document.getElementById("lock2").style.backgroundColor = "#fff0cc";
+                document.getElementById("lock2").style.color = "#b07000";
+            }
+            updateProgress(2);
+        } 
+
+        function step3(){
+            count3=0;
+            document.getElementById("step3-action").style.display = "block";
+            let skipCount3 = 0;
+            let userAction = prompt("Step 1 of 3: What is one recent action you took? (e.g., Beach clean-up)");
+            let userDonation = prompt("Step 2 of 3: Have you donated to a marine charity?");
+            let userFutureGoal = prompt("Step 3 of 3: What is your goal for next year?");  
+        
+            if(userAction!="" &&   userAction!=null){
+                document.getElementById("action").innerHTML="<b>Action:</b> " + userAction;
+                count3+=1;
+            }else{
+                document.getElementById("action").innerHTML= "";
+                skipCount3+=1;
+            }
+
+            if(  userDonation!="" &&   userDonation!=null){
+                document.getElementById("donation").innerHTML="<b>Donation:</b> " + userDonation;
+                count3+=1;
+            }else{
+                document.getElementById("donation").innerHTML= "";
+                skipCount3+=1;
+            }
+
+            if( userFutureGoal!="" &&  userFutureGoal!=null){
+                document.getElementById("futureGoal").innerHTML="<b>Future Goal:</b> " + userFutureGoal;
+                count3+=1;
+            }else{
+                document.getElementById("futureGoal").innerHTML= "";   
+                skipCount3+=1;
+            }
+
+            if(skipCount3==0){
+                document.getElementById("lock3").innerHTML = "completed &check;";
+                document.getElementById("lock3").style.backgroundColor = "#d4f0ee";
+                document.getElementById("lock3").style.color = "#0e7c7b";
+            }else{
+                document.getElementById("lock3").innerHTML = "Information skipped";
+                document.getElementById("lock3").style.backgroundColor = "#fff0cc";
+                document.getElementById("lock3").style.color = "#b07000";
+            }
+            updateProgress(3);
+        }   
+
+        function updateProgress(stepNumber){
+            let totalCount = count1 + count2 + count3;
+            let currentPercent = Math.round((totalCount/9)*100);
+            document.getElementById("precent").innerHTML = currentPercent + "%";
+            document.getElementById("progress-bar-fill").style.width = currentPercent + "%";
+        
+            var s1 = (count1 > 0) ? "<span style='color:#0e7c7b; font-weight:bold;'>Step 1: Done</span>"  : "Step 1: Not started";
+            var s2 = (count2 > 0) ? "<span style='color:#0e7c7b; font-weight:bold;'>Step 2: Done</span>"  : "Step 2: Not started";
+            var s3 = (count3 > 0) ? "<span style='color:#0e7c7b; font-weight:bold;'>Step 3: Done</span>"  : "Step 3: Not started";
+            document.getElementById("step-labels").innerHTML = s1 + " | " + s2 + " | " + s3;
+            
+            document.getElementById("status-msg").style.display = "block";
+
+            if (currentPercent == 100) {
+                document.getElementById("status-msg").innerHTML = "Profile 100% complete! You are an Ocean Guardian!";
+            } else if (stepNumber == 2){
+                document.getElementById("status-msg").innerHTML = "Great work! 2 steps done. One more to go!";
+            } else if (stepNumber == 1) {
+                document.getElementById("status-msg").innerHTML = "Smooth sailing! Personal details saved. Keep going!";
+            } else {
+                document.getElementById("status-msg").innerHTML = "Almost there! Complete the remaining steps.";
+            }
+        }
+
+        function resetAll() {
+            location.reload();
+        }
+    </script>
+</body>
+</html>
