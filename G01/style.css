@@ -94,7 +94,8 @@ a:hover {
 /* ---------- Header (Glassmorphism Navbar) ---------- */
 /* Sticky header with glassmorphism effect */
 header {
-    position: sticky;
+ position:sticky;
+
     top: 15px; /* Added spacing from top for floating effect */
     z-index: 1000;
     /* Glassmorphism: semi-transparent + blur */
