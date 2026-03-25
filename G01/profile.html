@@ -28,9 +28,12 @@
     </header>
 
     <main id="main-content">
+        <section class="hero">
+            <h1>Build Your Ocean Guardian Profile</h1>
+            <p >Complete these steps to showcase your contribution to marine conservation.</p>
+        </section>
         <div class="profile-card">
-            <h2 class="section-title" style="color: #03045e;">Build Your Ocean Guardian Profile</h2>
-            <p style="text-align: center; margin-bottom: 20px;">Complete these steps to showcase your contribution to marine conservation.</p>
+            
             
             <div id="progress-container">
                 <p><strong>Profile Completion: <span id="precent">0%</span></strong></p>
@@ -40,11 +43,12 @@
             </div>
 
             <p id="step-labels" style="font-size: 13px; color: #666; margin-bottom: 20px;">Step 1: Not started | Step 2: Not started | Step 3: Not started</p>
-    
+            <div class="button-group">
             <button class="btn" onclick="step1()">Step 1: Personal Details</button>
             <button class="btn" onclick="step2()">Step 2: Marine Interests</button>
             <button class="btn" onclick="step3()">Step 3: Marine Actions</button>
             <button class="reset-btn" onclick="resetAll()">Reset</button>
+            </div>
             
             <p id="status-msg" style="display:none; margin-top:14px; padding:12px; background-color:#f0faf9; border:1px solid #b2dbd9; border-radius:8px; font-size:14px;"></p>
         </div>
