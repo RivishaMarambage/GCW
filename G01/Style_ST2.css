@@ -97,7 +97,7 @@
     max-width: 400px;
     border-radius: 14px;
     box-shadow: 0 2px 8px rgba(3, 4, 94, 0.08);
-  
+
 }
 /*---Page Editor-Student 2 ------*/
 
@@ -109,7 +109,7 @@
     border-radius: 14px;
     margin-bottom: 32px;
     box-shadow: 0 2px 8px rgba(3, 4, 94, 0.08);
-  
+
 }
 .about h1{
     color: #0077b6;
@@ -127,26 +127,10 @@
 .about h3{
    color: #0096c7;
     margin-top: 20px;
-    margin-bottom: 8px; 
+    margin-bottom: 8px;
 }
 /* ---Main_list--- */
-ul {
-    list-style-type: disc;
-    padding-left: 20px;
-    margin-bottom: 10px;
-}
 
-/* ----- Sub_list---- */
-ul ul {
-    list-style-type: disc;  
-    padding-left: 60px;     
-    margin-top: 6px;        
-}
-
-/* Space between list items */
-li {
-    margin-bottom: 6px;
-}
 
 .impact-table {
   border-collapse: collapse;
@@ -168,7 +152,7 @@ li {
 }
 .impact-table td:first-child {
   font-weight: 600;
-  
+
 }
 
 /*-----Validation Page------*/
@@ -233,7 +217,7 @@ li {
     box-shadow: 0 4px 16px rgba(3, 4, 94, 0.05);
 }
 
- 
+
 /*------Action Impact Simulator---------*/
 /*===== Hero Section ====== */
 .ais-hero {

@@ -1107,116 +1107,20 @@ tbody tr:hover {
     border-width: 0;
 }
 
-/* ---------- Editor Layout ---------- */
-.editor-layout {
-    display: flex;
-    gap: 32px;
-    align-items: flex-start;
-    max-width: 1280px;
-    margin: 0 auto;
-}
+/* ==================== ST4 - PROFILE PAGE STYLES ==================== */
+/* Styles for the user profile card component - displays user information and stats */
 
-.editor-main-content {
-    flex: 1;
-    border: 2px solid rgba(0, 180, 216, 0.4);
-    border-radius: 14px;
-    background: #ffffff;
-    padding: 32px;
-    box-shadow: 0 4px 16px rgba(3, 4, 94, 0.05); /* Soft shadow for theme */
-}
-
-/* ---------- Editor Sidebar Navigation ---------- */
-.sidebar-nav {
-    background: #ffffff;
-    border: 2px solid rgba(0, 180, 216, 0.4);
-    padding: 20px 24px;
-    border-radius: 14px;
-    margin: 0; /* Remove right float margins */
-    width: 250px;
-    flex: 0 0 250px; /* Keep sidebar from shrinking */
-    box-shadow: none; /* No shadow per image */
-    position: sticky;
-    top: 100px; /* Keep it visible while scrolling */
-}
-
-.sidebar-nav .sidebar-title {
-    color: #03045e; /* Deep Twilight for better contrast */
-    font-size: 18px;
-    margin-bottom: 12px;
-    padding-bottom: 6px;
-    border-bottom: none; /* No line in screenshot */
-}
-
-.sidebar-nav ul {
-    list-style: none;
-    padding-left: 0;
-}
-
-.sidebar-nav ul li {
-    position: relative;
-    padding-left: 20px;
-    margin-bottom: 10px;
-    color: #0077b6; /* Teal color for dots/text */
-    font-weight: 500;
-}
-
-.sidebar-nav > ul > li::before {
-    content: '•';
-    position: absolute;
-    left: 0;
-    color: #0096c7;
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.sidebar-nav ul ul {
-    margin-top: 8px;
-    margin-bottom: 16px;
-}
-
-.sidebar-nav ul ul li {
-    padding-left: 20px;
-    font-weight: 400;
-}
-
-.sidebar-nav ul ul li::before {
-    content: '◦';
-    font-size: 14px;
-    left: 0;
-}
-
-.sidebar-nav a {
-    color: #0077b6;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.sidebar-nav a:hover {
-    color: #00b4d8;
-    text-decoration: underline;
-}
-
-/* ---------- Validation Images ---------- */
-.validation-img {
-    width: 100%;
-    max-width: 900px;
-    border: 2px solid rgba(0, 180, 216, 0.4);
-    border-radius: 14px;
-    margin-bottom: 24px;
-    display: block;
-    box-shadow: 0 4px 16px rgba(3, 4, 94, 0.05); /* Match editor content shadow */
-}
-
-/*St4 */
+/* Main profile card container */
 .profile-card {
     background-color: white;
     padding: 30px;
     border-radius: 14px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin: 0 auto 20px auto;
-    max-width: 750px;
+    background-size: cover;
 }
 
+/* Profile section styling - for editable sections within the profile */
 .profile-section {
     display: none;
     background-color: white;
@@ -1224,11 +1128,13 @@ tbody tr:hover {
     border-radius: 14px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin: 0 auto 20px auto;
-    max-width: 750px;
+    background-size: cover;
     border: 1px solid rgba(144, 224, 239, 0.3);
 }
 
+/* Progress bar for tracking user achievements or profile completion */
 
+/* Background track for the progress bar */
 #progress-bar-background {
     background-color: #caf0f8;
     border-radius: 50px;
@@ -1238,13 +1144,16 @@ tbody tr:hover {
     margin-bottom: 10px;
 }
 
+/* Filled portion of the progress bar - animates width changes */
 #progress-bar-fill {
     background: linear-gradient(90deg, #0077b6, #00b4d8);
     height: 100%;
     width: 0%;
     transition: width 0.5s ease;
+        /* Smooth animation when width changes */
 }
 
+/* Styles for locked achievements/features and edit buttons */
 .lock {
     font-size: 11px;
     font-weight: bold;
@@ -1254,6 +1163,7 @@ tbody tr:hover {
     color: #999;
 }
 
+/* Edit button for profile sections - allows inline editing */
 .edit-btn {
     display: inline-block;
     background-color: white;
@@ -1266,10 +1176,12 @@ tbody tr:hover {
     font-size: 12px;
 }
 
+/* Hover effect for edit button */
 .edit-btn:hover {
     background-color: #f0faf9;
 }
 
+/* Section heading with flexible layout */
 .section-top {
     display: flex;
     justify-content: space-between;
@@ -1277,4 +1189,107 @@ tbody tr:hover {
     margin-bottom: 12px;
     padding-bottom: 10px;
     border-bottom: 1px solid #caf0f8;
+}
+.button-group {
+    display: flex;
+    gap: 10px;
+    /* Puts a clean 10px gap between all buttons */
+    margin-top: 20px;
+}
+/* Reset button - allows resetting profile data to default values */
+.reset-btn {
+    padding: 12px 24px;
+    margin-left: auto;
+    background-color: #f9e6e3;
+    border: 1px solid #fcc5c1;
+    border-radius: 10px;
+    color: #bb2905;
+    font-weight: bold;
+
+}
+
+/* Hover effect for reset button*/
+.reset-btn:hover {
+    background-color: #f9cbcb;
+    cursor: pointer
+}
+
+
+
+/* ==================== SVG SITEMAP STYLES (St4) ==================== */
+/* Styles for the interactive site map diagram - visual navigation structure */
+
+/* Container that holds the SVG sitemap diagram */
+.sitemapContainer {
+    padding: 20px;
+    text-align: center;
+    margin-top: 20px;
+    max-width: 100%;
+    /* Stops the box from growing wider than the screen */
+    overflow-x: auto;
+    /* Adds a neat little scrollbar ONLY if the screen is too small */
+}
+
+
+
+/* Connection lines between nodes in the sitemap */
+.line {
+    stroke: #96eaf9;
+    stroke-width: 5;
+    stroke-linecap: round;
+    /* FIXES THE CORNERS */
+}
+
+
+
+/* Default rectangle styling for all node boxes */
+.node rect {
+    fill: #0ba8c8;
+    rx: 15px;
+    ry: 15px;
+}
+
+/* Special styling for home and splash screen nodes - different color for emphasis */
+.node-home-splash rect {
+    fill: #03045e;
+}
+
+/* Text styling inside node boxes */
+.node text {
+    fill: #ffffff;
+    font-weight: 600;
+    font-size: 16px;
+    text-anchor: middle;
+    dominant-baseline: middle;
+}
+
+/*hover effect */
+.node:hover rect {
+    fill: #006195;
+}
+
+/* Secondary category nodes (Content Pages, Page Editors, Validation Pages) */
+.node-parent2 rect {
+    fill: #036ca4;
+    rx: 15px;
+    ry: 15px;
+}
+
+
+/* Hover effect for parent2 nodes - no cursor change as they're non-clickable */
+.node-parent2:hover rect {
+    fill: #036ca4;
+    cursor: default;
+
+}
+
+/* Child nodes - individual pages under each category */
+.node-child rect {
+    fill: #ade8f4;
+}
+
+/* Text styling for child nodes - darker text for better contrast on light background */
+.node-child text {
+    fill: #03045e;
+    font-weight: 600;
 }
