@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page Editor – Student 4 | OceanGuard</title>
+    <title>Page Editor – Student 4 </title>
     <meta name="description" content="Page editor documentation for Student 4 detailing the Sitemap, User Profile, Content page, and overall code validation.">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -44,8 +44,8 @@
                 <ul>
                     <li>Student 4
                         <ul>
-                            <li><a href="#sitemap-page">Sitemap</a></li>
                             <li><a href="#profile-page">User Profile</a></li>
+                            <li><a href="#sitemap-page">Sitemap</a></li>
                             <li><a href="#content-page">Content Page</a></li>
                             <li><a href="#validation-page">Validation</a></li>
                         </ul>
@@ -69,16 +69,36 @@
                 </article>
 
                 <article class="editor-article">
-                    <h2>📄 Pages Implemented</h2>
-
-                    <h3 id="profile-page">User Profile (profile.html)</h3>
-                    <h4>Technical Description</h4>
-                    <p>The profile page acts as a personalized dashboard for the user to track their engagement with SDG 14 initiatives.</p>
+                    <h3 id="profile-page">User Profile Dashboard (profile.html)</h3>
+                    <h4>Technical Description & Logic Engineering</h4>
+                    <p>The profile page was developed as a <strong>Dynamic Progress Tracker</strong> that manages user data
+                     through custom JavaScript state synchronization.</p>
+                    
                     <ul>
-                        <li><strong>Layout:</strong> Utilized CSS Flexbox and container styling (<code>.profile-card</code>) to create a clean, modern interface displaying user details.</li>
-                        <li><strong>Progress Tracking:</strong> Built a visual progress bar using nested divs (<code>#progress-bar-background</code> and <code>#progress-bar-fill</code>). The fill width is controlled via inline CSS to simulate milestone achievement.</li>
-                        <li><strong>Interactivity:</strong> Added "Edit" buttons and milestone "Lock" badges to simulate a fully functional user interface environment.</li>
+                        <li><strong>State Persistence:</strong> Utilized <strong>Global Scope Variables</strong> (<code>count1, count2, count3</code>) 
+                            to maintain a persistent "Scoreboard" of user progress.This ensures that data remains consistent
+                             across different interaction modes (Initial Entry vs. Skip Correction).</li>
+                        
+                        <li><strong>Idempotent Validation Logic:</strong> To prevent "Double Counting" bugs, I engineered a nested conditional check:
+                            <pre><code>if (element.innerHTML === "") { ... count++; }</code></pre>
+                            This ensures that the progress bar and fraction only increment when a field transitions from empty to filled, maintaining a strict 0-to-9 data scale. 
+                        </li>
+                    
+                        <li><strong>Multi-Modal Feedback:</strong> The UI provides three layers of real-time feedback via the <code>updateProgress()</code> function:
+                            <ol>
+                                <li><strong>Quantitative:</strong> A CSS linear-gradient progress bar.</li>
+                                <li><strong>Relative:</strong> A percentage display (e.g., 66%).</li>
+                                <li><strong>Absolute:</strong> A completion fraction (e.g., 6/9) to reduce user cognitive load.</li>
+                            </ol>
+                        </li>
+                    
+                        <li><strong>Conditional UI Masking:</strong> Implemented <strong>State-Dependent Visibility</strong> for the "Complete Skipped" buttons. Using the <code>.style.display = "none"</code> property, the buttons are programmatically hidden only once a section's specific DOM nodes are 100% validated as non-empty.</li>
+                    
+                        <li><strong>Visual Hierarchy:</strong> Leveraged <code>.innerHTML</code> for presentational markup, using <code>&lt;b&gt;</code> tags to create a clear distinction between system labels and user-provided data strings.</li>
                     </ul>
+                    
+                    <h4>Testing & Validation</h4>
+                    <p>Extensive manual testing was conducted to verify <strong>Edge Case Handling</strong>. I confirmed that clicking "Cancel" on a prompt or providing an empty string does not trigger the increment operator, ensuring the "Guardian Rank" progress remains accurate even with erratic user input.</p>
                     <p><a href="validation_ST4.html">Link to validation page</a></p>
                     <p><a href="profile.html">Link to the page</a></p>
 
@@ -112,33 +132,58 @@
                 </article>
 
                 <article class="editor-article" id="challenges-section">
-                    <h2>🧠 Challenges and Lessons Learned</h2>
-                    <p>The biggest challenge I faced was developing the interactive SVG Sitemap. Mapping out the exact X and Y coordinates for every box and connecting line required precise mathematical planning. When I first applied thick strokes to the lines, they created gaps at the 90-degree corners. I overcame this by researching SVG properties and implementing <code>stroke-linecap: round</code> in CSS, which fixed the joints seamlessly.</p>
-                    <p>I also learned a great deal about the importance of the CSS <strong>Box Model</strong> and <strong>Overflow</strong> properties. Initially, my large SVG map caused horizontal scrolling issues on small screens. By wrapping the SVG in a responsive container with <code>max-width: 100%</code> and <code>overflow-x: auto</code>, I successfully protected the site's layout on mobile devices.</p>
-                </article>
+                    I understand—the previous version felt a bit like a textbook! Let's dial back the complex jargon and make the descriptions more natural. I have replaced terms like "Idempotent State Synchronization" and "Cognitive Load Optimization" with clearer headers while keeping the strong story of how you fixed your code.
 
-                <article class="editor-article" id="accessibility-section">
-                    <h2>♿ Accessibility</h2>
-                    <ul>
-                        <li><strong>Alt text:</strong> Every <code>&lt;img&gt;</code> element includes descriptive <code>alt</code> attributes that convey the image content and context.</li>
-                        <li><strong>Semantic HTML:</strong> Pages use <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;footer&gt;</code>, and <code>&lt;article&gt;</code> elements for proper document structure.</li>
-                        <li><strong>Visual Hierarchy:</strong> The sitemap uses a distinct cascading color palette (from dark navy to light pastel blues) to communicate depth and structure intuitively without relying solely on text.</li>
-                        <li><strong>Readable contrast:</strong> Dark text is used on light backgrounds across the profile and content pages to ensure contrast ratios exceed WCAG AA requirements.</li>
-                        <li><strong>Responsive text & Containers:</strong> Font sizes scale appropriately, and large diagrams (like the sitemap) are contained within scrollable divs to prevent screen-breaking on mobile assistive devices.</li>
-                    </ul>
-                </article>
-
-                <article class="editor-article" id="compliance-section">
-                    <h2>🔒 JANET Compliance</h2>
-                    <p>This website adheres to responsible web publishing standards as required by the JANET Acceptable Use Policy:</p>
-                    <ul>
-                        <li><strong>Lawful content:</strong> All content is original and educational, focusing on SDG 14 ocean conservation.</li>
-                        <li><strong>No copyright infringement:</strong> Images are generated or used with appropriate permissions. All external sources are cited in the references section.</li>
-                        <li><strong>No offensive material:</strong> The site contains only educational content suitable for all audiences.</li>
-                        <li><strong>Privacy:</strong> No personal data is collected, stored, or transmitted. No cookies or tracking mechanisms are used.</li>
-                        <li><strong>Accuracy:</strong> All statistics and claims are sourced from reputable organisations (UN, UNEP, Ocean Conservancy).</li>
-                    </ul>
-                </article>
+                    📄 Simplified Challenges & Lessons (Update for pageEditor_ST4.html)
+                    HTML
+                    <article class="editor-article" id="challenges-section">
+                        <h2>🧠 Challenges and Lessons Learned</h2>
+                        
+                        <h4>1. Mapping the Sitemap (SVG Grid Planning)</h4>
+                        <p>The most difficult visual task was creating the Sitemap from scratch using SVG code. Because I wasn't using a simple image, I had to plan the exact position of every box and line on a mathematical grid.</p>
+                        <ul>
+                            <li><strong>The Problem:</strong> At first, the lines connecting the pages didn't touch the boxes perfectly, leaving small gaps at the corners that looked unprofessional.</li>
+                            <li><strong>The Solution:</strong> I researched how SVG lines work and used a property called <code>stroke-linecap: round</code>. This smoothed out the joints where lines met, making the whole map look like one solid structure.</li>
+                            <li><strong>Lesson:</strong> I learned how to use the CSS <strong>Box Model</strong> and <strong>Overflow</strong> properties to make sure this large map didn't break the layout on small mobile screens.</li>
+                        </ul>
+                    
+                        <h4>2. Fixing the Progress Bar (The "Over-Counting" Bug)</h4>
+                        <p>A major logic error happened while building the User Profile. If a user clicked the "Complete Skipped" button more than once, the progress bar would keep adding points forever, eventually going way past 100%.</p>
+                        <ul>
+                            <li><strong>The Problem:</strong> The code was just adding +1 every time the button was pressed. It wasn't "smart" enough to check if the information was already there.</li>
+                            <li><strong>The Solution:</strong> I changed the code to check the screen first. Now, the computer looks at the display box to see if it is empty. It only adds a point if the box is actually blank. This makes the counting "self-correcting."</li>
+                            <li><strong>Lesson:</strong> This taught me <strong>Defensive Programming</strong>—writing code that doesn't break even if a user clicks things in the wrong order or multiple times.</li>
+                        </ul>
+                    
+                        <h4>3. Better Progress Feedback (Percentage and Fractions)</h4>
+                        <p>I realized that just having a percentage bar (like 33%) wasn't helpful enough for users because they didn't know exactly how many questions were left to answer.</p>
+                        <ul>
+                            <li><strong>The Problem:</strong> Percentages can be vague. Users often feel "estimation fatigue" when they can't see the exact number of steps remaining.</li>
+                            <li><strong>The Solution:</strong> I updated my <code>updateProgress()</code> function to show two things at once: the percentage and a fraction (like 3/9). I also made the "Complete Skipped" button disappear automatically, but only when a section is truly finished.</li>
+                            <li><strong>Lesson:</strong> I learned that good web design is about <strong>Visibility of System Status</strong>—always making sure the user knows exactly where they stand in a process.</li>
+                        </ul>
+                    </article>
+    
+                    <article class="editor-article" id="accessibility-section">
+                        <h2>♿ Accessibility</h2>
+                        <ul>
+                            <li><strong>Alt text:</strong> Every <code>&lt;img&gt;</code> element includes descriptive <code>alt</code> attributes that convey the image content and context.</li>
+                            <li><strong>Semantic HTML:</strong> Pages use <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;footer&gt;</code>, and <code>&lt;article&gt;</code> elements for proper document structure.</li>
+                            <li><strong>Visual Hierarchy:</strong> The sitemap uses a distinct cascading color palette to communicate depth and structure intuitively.</li>
+                            <li><strong>Readable contrast:</strong> Dark text is used on light backgrounds to ensure contrast ratios exceed WCAG AA requirements.</li>
+                            <li><strong>Responsive Containers:</strong> Large diagrams like the sitemap are contained within scrollable divs to prevent layout breaking on mobile.</li>
+                        </ul>
+                    </article>
+    
+                    <article class="editor-article" id="compliance-section">
+                        <h2>🔒 JANET Compliance</h2>
+                        <p>This website adheres to responsible web publishing standards as required by the JANET Acceptable Use Policy:</p>
+                        <ul>
+                            <li><strong>Lawful content:</strong> All content is original and educational, focusing on SDG 14.</li>
+                            <li><strong>No copyright infringement:</strong> Images are used with permissions or generated; all sources are cited.</li>
+                            <li><strong>Privacy:</strong> No personal data is collected or transmitted; no cookies are used.</li>
+                        </ul>
+                    </article>
 
                 <article class="editor-article" id="meeting-log-section">
                     <h2>📅 Group Meeting Log</h2>
@@ -214,11 +259,16 @@
                         <li>W3C. (2024). <em>Markup Validation Service</em>. Available at: https://validator.w3.org/</li>
                         <li>W3C. (2024). <em>CSS Validation Service</em>. Available at: https://jigsaw.w3.org/css-validator/</li>
                         
-                        <li>MDN Web Docs. (2024). <em>HTML and CSS Reference</em>. Mozilla. Available at: https://developer.mozilla.org</li>
-                        
                         <li>United Nations. (2024). <em>Sustainable Development Goal 14: Life Below Water</em>. Available at: https://sdgs.un.org/goals/goal14</li>
                         
                         <li>JANET. (2024). <em>Acceptable Use Policy</em>. Jisc. Available at: https://community.jisc.ac.uk/library/acceptable-use-policy</li>
+
+                        <li>W3Schools. (2025). <em>JavaScript HTML DOM Reference</em>. Refsnes Data. Available at: https://www.w3schools.com/js/js_htmldom.asp</li>
+
+                        <li>MDN Web Docs. (2024). <em>HTML and CSS Reference</em>. Mozilla. Available at: https://developer.mozilla.org</li>
+
+                        <<li>Emojipedia. (2025). <em>Beach with Umbrella Emoji Reference</em>. Zedge. Available at: https://emojipedia.org</li>
+    
                     </ul>
                 </article>
 
