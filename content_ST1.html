@@ -8,6 +8,118 @@
     <meta name="description"
         content="Learn about plastic pollution impact on oceans and discover actions students can take to protect marine environments.">
     <link rel="stylesheet" href="style.css">
+    <!-- ===== Embedded CSS – Content Page Specific Styles ===== -->
+    <style>
+        /* Rule 1: Page-specific internal navigation styling (rubric: styled appropriately) */
+        .internal-nav {
+            background: rgba(255, 255, 255, 0.95);
+            border-left: 6px solid #0077b6;
+            padding: 32px;
+            margin-bottom: 48px;
+            border-radius: 0 16px 16px 0;
+            box-shadow: 0 4px 20px rgba(3, 4, 94, 0.08);
+        }
+
+        .internal-nav h2 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: #03045e;
+        }
+
+        .internal-nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .internal-nav ul li a {
+            display: inline-block;
+            background: #f0f8ff;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #0077b6;
+            border: 1px solid rgba(0, 119, 182, 0.15);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .internal-nav ul li a:hover {
+            background: #0077b6;
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 119, 182, 0.2);
+            text-decoration: none;
+        }
+
+        /* Rule 2: Enhanced section spacing and appearance */
+        .content-section {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 48px;
+            border-radius: 20px;
+            margin-bottom: 48px;
+            box-shadow: 0 4px 24px rgba(3, 4, 94, 0.05);
+            border: 1px solid rgba(144, 224, 239, 0.2);
+        }
+
+        .content-section h2 {
+            margin-bottom: 32px;
+            font-size: 28px;
+            color: #03045e;
+            position: relative;
+            padding-bottom: 12px;
+        }
+
+        .content-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #00b4d8, #48cae4);
+            border-radius: 2px;
+        }
+
+        /* Rule 3: Content layout flex setup */
+        .content-with-image {
+            display: flex;
+            gap: 48px;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+
+        .content-with-image .text-content {
+            flex: 1.2;
+            min-width: 320px;
+        }
+
+        .content-with-image img {
+            flex: 1;
+            min-width: 320px;
+            /* Rule 4: Image styling (rubric: spacing, borders, shadows, responsive) */
+            box-shadow: 0 12px 40px rgba(3, 4, 94, 0.12);
+            border: 2px solid rgba(144, 224, 239, 0.3);
+            margin: 12px 0;
+            transition: transform 0.4s ease;
+        }
+
+        .content-with-image img:hover {
+            transform: scale(1.02);
+        }
+
+        /* Rule 5: Action list enhancement */
+        .text-content ul {
+            margin-top: 20px;
+            padding-left: 4px;
+        }
+
+        .text-content ul li {
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+    </style>
 </head>
 
 <body>
