@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            overflow-x: hidden;
+        }
+        .reviews h1{
+           font-size:120px;
+           text-align:center;
+           color:white;
+           letter-spacing:20px;
+        }
+        .reviews-intro{
+            text-align:center;
+            color:white;
+            font-size:19px;
+            opacity:1;
+        }
+        .review-container{
+            display:flex;
+            flex-wrap:wrap;
+            justify-content:space-around;
+            margin-top:50px;
+        }
+
+        .review-card{
+            background-color:white;
+            width:350px;
+            padding:30px;
+            margin:20px;
+            border-radius:10px;
+            box-shadow:0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .stars {
+            color: #e6c50e; /* gold/yellow */
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        .review-card:hover {
+            transform: translateY(-10px);
+            box-shadow:0 8px 16px rgb(244, 244, 244);
+            transition: all 0.3s ease;
+        }
+        .reviews-section {
+            position: relative;
+            overflow: hidden;
+            padding: 60px 20px;
+            color: white;
+            height: 100vh;
+        }
+
+        .bg-video {
+            position: fixed;   /* KEY CHANGE */
+            top: 0;
+            left: 0;
+
+            width: 100vw;      /* full width */
+            height: 100vh;     /* full height */
+
+            object-fit: cover;
+            z-index: -1;
+        }
+
+
+        .programs {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 30px;
+        }
+        .program-title{
+            text-align: center;
+            font-size: 4.5em;
+            color: #ffffff;
+            letter-spacing: 2px;
+        }
+        /* CARD */
+        .program-card {
+            width: 380px;
+            height: 450px;
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            transition: 0.3s;
+        }
+
+        /* HOVER */
+        .program-card:hover {
+            transform: translateY(-8px);
+        }
+
+        /* IMAGE */
+        .program-card img {
+            width: 80px;
+            margin-bottom: 10px;
+        }
+
+        /* TITLE */
+        .program-card h3 {
+            margin: 10px 0;
+        }
+
+        /* LOCATION */
+        .location {
+            color: #666;
+            font-size: 14px;
+        }
+
+        /* INFO ROW */
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+            margin: 10px 0;
+        }
+
+        /* DESCRIPTION */
+        .desc {
+            font-size: 14px;
+            margin: 10px 0;
+        }
+
+        /* BUTTONS */
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+            width: 100%;
+            padding: 0 20px;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .view {
+            background: #0a7cff;
+            color: white;
+            border: none;
+            padding: 8px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .apply {
+            background: #032a79;
+            color: white;
+            border: none;
+            padding: 8px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .view:hover {
+            background: #005ecb;
+        }
+
+        .apply:hover {
+            background: #27ae60;
+        }
+
+
+        .rating {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .rating span {
+            font-size: 30px;
+            cursor: pointer;
+            color: #888;
+            transition: 0.3s;
+        }
+
+        .average-rating {
+            font-size: 18px;
+            color: #333;
+            margin-top: 10px;
+        }
+
+
+        form{
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0
+        ,0.1);
+            max-width: 800px;
+            margin: 20px auto;
+        }
+
+        fieldset{
+            border:1px solid #ccc;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        legend{
+            padding: 0 10px;
+            font-weight: bold;
+        }
+
+        input, textarea, select{
+            width:100%;
+            padding: 10px;
+            margin-top: 5px;
+        }
+
+        button{
+            background-color: #0a7cff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .error{
+            color: red;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        #successMsg{
+            color: green;
+            font-size: 16px;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .form h1{
+            text-align: center;
+            color: #ffffff;
+            margin-bottom: 20px;
+            font-size: 66px;
+        }
+
+        .rating-sum{
+            text-align: center;
+            margin: 40px 0;
+            color:white;
+            border: 2px solid rgb(157, 152, 3);
+            background-color: rgb(9, 37, 110);
+            width: 1900px;
+            padding: 50px;
+            justify-content: center;
+        }
+
+        .rating-sum h2{
+            font-size: 60px;
+            color: rgb(255, 255, 255);
+            margin-bottom: 10px;
+        }
+
+        .rating-sum p{
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        .starss {
+            font-size: 2em;
+            color: gold;
+        }
+
+        .rating-sum-content{
+            margin-right: 200px;
+
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <!-- Logo with wave emoji -->
+            <div class="logo">
+                <img src="images/abstract-blue-swirling-vortex-digital-art-piece.png" alt="OceanGuard Logo" class="nav-logo">
+            </div>
+            <!-- Navigation Bar -->
+            <nav aria-label="Main Navigation">
+                <ul>
+                    <li><a href="home.html" >Home</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="ais.html">Action Impact Simulator</a></li>
+                    <li><a href="feedback.html" class="active">Feedback</a></li>
+                    <li><a href="team.html">Team</a></li>
+                    <li><a href="sitemap.html">Sitemap</a></li>
+                </ul>
+            </nav>
+            <!-- User Profile Icon -->
+            <a href="profile.html" class="profile-icon" aria-label="User Profile" title="User Profile">👤 Profile</a>
+        </div>
+    </header>
+<br><br><br><br>
+    <section class="reviews">
+          <video autoplay muted loop playsinline class="bg-video">
+        <source src="images/feedback.mp4" type="video/mp4">
+          </video>
+
+
+        <h1>REVIEWS</h1><br>
+        <p class="reviews-intro">Discover what our users have to say about OceanGuard! Our interactive platform has received rave <br>
+                                 reviews for its engaging features and impactful content. From students to environmentalists, users <br>
+                                 are praising OceanGuard for its ability to educate and inspire action towards ocean conservation. Join <br>
+                                 the conversation and see why OceanGuard is making waves in the world of environmental education!</p>
+
+        <div class="review-container">
+            <div class="review-card">
+                <h2>Jane Doe</h2>
+                <p>"OceanGuard has completely changed<br>
+                     the way I think about ocean conservation.<br>
+                      The interactive features are amazing!<br>
+                      The interactive features are amazing!<br>
+                      the way I think about ocean conservation"</p><br>
+                <div class="stars">
+                ★ ★ ★ ★ ☆
+                </div>
+            </div>
+            <div class="review-card">
+                <h2>John Smith</h2>
+                <p>"OceanGuard has completely changed<br>
+                     the way I think about ocean conservation.<br>
+                      The interactive features are amazing!<br>
+                      The interactive features are amazing!<br>
+                      the way I think about ocean conservation"</p>
+                    <div class="stars">
+                ★ ★ ★ ★ ☆
+                </div>
+            </div>
+            <div class="review-card">
+                <h2>Emily Johnson</h2>
+                <p>"OceanGuard has completely changed<br>
+                     the way I think about ocean conservation.<br>
+                      The interactive features are amazing!<br>
+                      The interactive features are amazing!<br>
+                      the way I think about ocean conservation"</p>
+                      <div class="stars">
+                ★ ★ ★ ★ ☆
+                </div>
+            </div>
+            <div class="review-card">
+                <h2>Emily Johnson</h2>
+                <p>"OceanGuard has completely changed<br>
+                     the way I think about ocean conservation.<br>
+                      The interactive features are amazing!<br>
+                      The interactive features are amazing!<br>
+                      the way I think about ocean conservation"</p>
+                      <div class="stars">
+                ★ ★ ★ ★ ☆
+                </div>
+            </div>
+            <div class="review-card">
+                <h2>Emily Johnson</h2>
+                <p>"OceanGuard has completely changed<br>
+                     the way I think about ocean conservation.<br>
+                      The interactive features are amazing!<br>
+                      The interactive features are amazing!<br>
+                      the way I think about ocean conservation"</p>
+                      <div class="stars">
+                ★ ★ ★ ★ ☆
+                </div>
+            </div>
+            <div class="review-card">
+                <h2>Emily Johnson</h2>
+                <p>"OceanGuard has completely changed<br>
+                     the way I think about ocean conservation.<br>
+                      The interactive features are amazing!<br>
+                      The interactive features are amazing!<br>
+                      the way I think about ocean conservation"</p>
+                      <div class="stars">
+                ★ ★ ★ ★ ☆
+                </div>
+            </div>
+            <div class="review-card">
+                <h2>John Smith</h2>
+                <p>"OceanGuard has completely changed<br>
+                     the way I think about ocean conservation.<br>
+                      The interactive features are amazing!<br>
+                      The interactive features are amazing!<br>
+                      the way I think about ocean conservation"</p>
+                      <div class="stars">
+                ★ ★ ★ ★ ☆
+                </div>
+            </div>
+            <div class="review-card">
+                <h2>John Smith</h2>
+                <p>"OceanGuard has completely changed<br>
+                     the way I think about ocean conservation.<br>
+                      The interactive features are amazing!<br>
+                      The interactive features are amazing!<br>
+                      the way I think about ocean conservation"</p>
+                      <div class="stars">
+                ★ ★ ★ ★ ☆
+                </div>
+            </div>]=
+        </div>
+    </section>
+
+    <br><br><br><br>
+
+    <div class="rating-sum">
+        <div class="rating-sum-content">
+            <h2>8.6/10 Excellent</h2>
+        <p>Based on 1,234 reviews</p>
+
+        <div class="starss">
+             ★ ★ ★ ★ ☆
+
+        </div>
+        </div>
+
+
+    </div>
+
+
+
+ <br><br><br><br>
+ <h2 class="program-title">Explore Programs</h2>
+
+<div class="programs">
+
+    <!-- CARD 1 -->
+    <div class="program-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/2913/2913465.png" alt="marine picture">
+        <h3>Ocean Conservation</h3>
+        <p class="location">📍 Global Initiative</p>
+
+
+
+        <hr>
+
+        <p>⏳ Duration: 2–12 weeks</p>
+        <p>👥 All ages welcome</p>
+
+        <p class="desc">
+            Participate in global efforts to protect marine ecosystems, reduce pollution,
+    and raise awareness about ocean acidification and climate change impacts.
+        </p>
+
+        <div class="buttons">
+            <button class="view">View Project</button>
+            <button class="apply" onclick="joinMsg()">Apply</button>
+        </div>
+    </div>
+
+
+    <!-- CARD 2 -->
+    <div class="program-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/4149/4149686.png" alt="marine picture">
+
+        <h3>Coastal Community Support</h3>
+        <p class="location">📍 Local Communities</p>
+
+
+
+        <hr>
+
+        <p>⏳ Duration: 1–8 weeks</p>
+        <p>👥 Volunteers aged 16+</p>
+
+        <p class="desc">
+           Work with coastal communities to promote sustainable fishing practices and
+    educate locals about the effects of ocean acidification on livelihoods.
+        </p>
+
+        <div class="buttons">
+            <button class="view">View Project</button>
+            <button class="apply" onclick="joinMsg()">Apply</button>
+        </div>
+    </div>
+
+
+    <!-- CARD 3 -->
+    <div class="program-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/2784/2784489.png" alt="marine picture">
+        <h3>Marine Research Assistance</h3>
+        <p class="location">📍 Rural Areas</p>
+
+
+
+        <hr>
+
+        <p>⏳ Duration: 2–6 weeks</p>
+        <p>👥 Ages 18+</p>
+
+        <p class="desc">
+               Assist scientists in collecting ocean data, monitoring pH levels, and studying
+    the impact of acidification on marine biodiversity.
+
+        </p>
+
+        <div class="buttons">
+            <button class="view">View Project</button>
+            <button class="apply" onclick="joinMsg()">Apply</button>
+        </div>
+    </div>
+
+
+
+    <div class="program-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/3448/3448601.png" alt="marine picture">
+        <h3>Beach Cleanup Program</h3>
+        <p class="location">📍 Rural Areas</p>
+
+
+
+        <hr>
+
+        <p>⏳ Duration: 2–6 weeks</p>
+        <p>👥 Ages 18+</p>
+
+        <p class="desc">
+            Help remove plastic waste from beaches to prevent pollution and reduce
+    environmental damage that contributes to ocean acidification.
+        </p>
+
+        <div class="buttons">
+            <button class="view">View Project</button>
+            <button class="apply" onclick="joinMsg()">Apply</button>
+        </div>
+    </div>
+    <div class="program-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828919.png" alt="marine picture">
+        <h3>Ocean Awareness Campaign</h3>
+        <p class="location">📍 Rural Areas</p>
+
+
+
+        <hr>
+
+        <p>⏳ Duration: 2–6 weeks</p>
+        <p>👥 Ages 18+</p>
+
+        <p class="desc">
+           Create campaigns, social media content, and presentations to educate others
+    about ocean acidification and climate change impacts.
+        </p>
+
+        <div class="buttons">
+            <button class="view">View Project</button>
+            <button class="apply" onclick="joinMsg()">Apply</button>
+        </div>
+    </div>
+    <div class="program-card">
+       <img src="https://cdn-icons-png.flaticon.com/512/616/616490.png" alt="marine picture">
+
+        <h3>Coral Reef Restoration</h3>
+        <p class="location">📍 Rural Areas</p>
+
+
+
+        <hr>
+
+        <p>⏳ Duration: 2–6 weeks</p>
+        <p>👥 Ages 18+</p>
+
+        <p class="desc">
+             Support coral reef restoration projects and help rebuild ecosystems affected
+    by ocean acidification and environmental damage.
+        </p>
+
+        <div class="buttons">
+            <button class="view">View Project</button>
+            <button class="apply" onclick="joinMsg()">Apply</button>
+        </div>
+    </div>
+
+</div>
+
+<p id="joinMessage"></p>
+
+
+
+
+<br><br>
+   <section class="form">
+    <h1>
+    We Value Your Feedback!
+    </h1>
+      <form id="feedbackForm">
+        <fieldset>
+            <legend>Personal Details</legend>
+
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" required placeholder="Enter your full name">
+            <span class="error" id="nameError"></span>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required placeholder="Enter your email">
+            <span class="error" id="emailError"></span>
+
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" name="phone" required placeholder="Enter your phone number">
+
+
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" required placeholder="Enter your address">
+
+        </fieldset>
+
+        <fieldset>
+            <legend>Feedback Details </legend>
+
+            <label for="message">Your Feedback:</label>
+            <textarea id="message" name="message" maxlength="100" required placeholder="Share your thoughts about OceanGuard"></textarea>
+            <p id="counter"> 100 characters remaining</p>
+
+            <label for="source">How did you hear about us?</label>
+            <select id="source">
+                <option value="social-media">Social Media</option>
+                <option value="friend">Friend/Family</option>
+                <option value="search">Search Engine</option>
+                <option value="other">Other</option>
+            </select>
+
+            <label for="date">Date: </label>
+            <input type="date" id="date" name="date">
+
+            <label for="datetime">Date & Time:</label>
+            <input type="datetime-local" id="datetime" name="datetime">
+        </fieldset>
+        <button type="submit">Submit Feedback</button>
+
+        <p id="successMsg"></p>
+      </form>
+   </section>
+
+   <script>
+       const message = document.getElementById('message');
+         const counter = document.getElementById('counter');
+
+         message.addEventListener('input', () => {
+             const remaining = 100 - message.value.length;
+             counter.textContent = `${remaining} characters remaining`;
+         });
+
+         document.getElementById('feedbackForm').addEventListener('submit', function(event) {
+             event.preventDefault();
+             document.getElementById('successMsg').textContent = 'Thank you for your feedback!';
+         });
+
+         let valid = true;
+
+         let name = document.getElementById("name").value;
+         let email = document.getElementById("email").value;
+
+         if(name === ""){
+             document.getElementById("nameError").textContent = "Name is required";
+             valid = false;
+         } else {
+             document.getElementById("nameError").textContent = "";
+         }
+
+         if(email === ""){
+             document.getElementById("emailError").textContent = "Email is required";
+             valid = false;
+         } else {
+             document.getElementById("emailError").textContent = "";
+         }
+
+         if(valid){
+             document.getElementById('successMsg').textContent = 'Thank you for your feedback!';
+         }
+
+
+
+   </script>
+
+
+<!-- ===== Footer ===== -->
+    <footer>
+        <div class="footer-container">
+            <!-- Left Side: Logo + SDG Text -->
+            <div class="footer-brand">
+                <img src="images/abstract-blue-swirling-vortex-digital-art-piece.png" alt="OceanGuard Logo"
+                    class="footer-logo-img">
+                <div class="footer-sdg">
+                    <p class="sdg-label">SUSTAINABLE<br>DEVELOPMENT</p>
+                    <p class="sdg-goals">G&#127760;ALS</p>
+                </div>
+            </div>
+            <!-- Middle: Info Links -->
+            <div class="footer-editors">
+                <h3>Information</h3>
+                <a href="validation_ST1.html">Validation (ST1)</a>
+                <a href="validation_ST2.html">Validation (ST2)</a>
+                <a href="validation_ST3.html">Validation (ST3)</a>
+                <a href="validation_ST4.html">Validation (ST4)</a>
+            </div>
+            <!-- Right Side: Editors -->
+            <div class="footer-editors">
+                <h3>Page Editors</h3>
+                <a href="pageEditor_ST1.html">Student 1</a>
+                <a href="pageEditor_ST2.html">Student 2</a>
+                <a href="pageEditor_ST3.html">Student 3</a>
+                <a href="pageEditor_ST4.html">Student 4</a>
+            </div>
+        </div>
+        <!-- Bottom Section: Copyright -->
+        <div class="footer-bottom">
+            <p>&copy; 2025 WebDev Group 4</p>
+        </div>
+    </footer>
+
+</body>
+</html>

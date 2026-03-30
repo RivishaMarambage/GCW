@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>Coral Reef Protection &amp; Sustainability.| OceanGuard</title>
+        <link rel="stylesheet" href="style.css">
+        <style>
+            /*----Content Page----*/
+            /* ---- Navigation_Part----*/
+            .page-nav{
+                background: #ffffff;
+                padding: 20px;
+                border-radius: 14px;
+                box-shadow: 0 2px 8px rgba(3, 4, 94, 0.08);
+                margin-bottom: 32px;
+                border-left: 4px solid #0077b6;
+            }
+            .page-nav h3{
+                font-size :16px;
+                margin-bottom: 12px;
+                color: #03045e;
+                font-family: 'Poppins', sans-serif;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+            }
+            .page-nav ul{
+                list-style:none;
+                display: flex;
+                flex-wrap: wrap;
+                gap:8px;
+            }
+            .page-nav ul li a{
+                display: inline-block;
+                padding: 6px 16px;
+                background:  #caf0f8;
+                border-radius: 10px;
+                font-size: 14px;
+                color: #0077b6;
+                transition: all 0.3s ease;
+                font-weight: 500;
+            }
+            .page-nav ul li a:hover{
+                background: #0077b6;
+                color: #ffffff;
+                text-decoration: none;
+            }
+            /* --- Page_Sections ----*/
+            .content-st_2 {
+                background: #ffffff;
+                padding: 32px;
+                border-radius: 14px;
+                box-shadow: 0 2px 8px rgba(3, 4, 94, 0.08);
+                margin-bottom: 32px;
+            }
+
+            .content-st_2 h2 {
+                color: #0077b6;
+                margin-bottom: 16px;
+                padding-bottom: 8px;
+                border-bottom: 2px solid rgba(0, 119, 182, 0.1);
+            }
+
+            .content-st_2 .Sub_content {
+                display: flex;
+                gap: 20px;
+                padding: 20px 25px;
+                align-items: flex-start;
+            }
+            .content-st_2 .Sub_content p,
+            .content-st_2 .text-group {
+                flex: 1;
+                font-size: 0.95rem;
+                line-height: 1.8;
+                color: #222;
+                font-family: Georgia, serif;
+                margin: 0;
+            }
+
+            .content-st_2 .text-group p {
+                margin-bottom: 12px;
+            }
+
+            .content-st_2 .text-group ul {
+                padding-left: 20px;
+                margin: 0;
+            }
+
+            .content-st_2 .text-group ul li {
+                margin-bottom: 8px;
+            }
+            /* ----- Image_Layout ----*/
+            .Sub_content .text-content{
+                flex: 1;
+                min-width: 280px;
+            }
+            .Sub_content{
+                display: flex;
+                gap: 32px;
+                align-items: flex-start;
+                flex-wrap: wrap;
+            }
+            .Sub_content img {
+                width: 100%;
+                max-width: 400px;
+                border-radius: 14px;
+                box-shadow: 0 2px 8px rgba(3, 4, 94, 0.08);
+
+            }
+            /*---Page Editor-Student 2 ------*/
+
+            /* ---Main_Content---- */
+
+            .about{
+                background-color:white;
+                padding: 32px;
+                border-radius: 14px;
+                margin-bottom: 32px;
+                box-shadow: 0 2px 8px rgba(3, 4, 94, 0.08);
+
+            }
+            .about h1{
+                color: #0077b6;
+                font-size: 1.6rem;
+                margin-bottom: 16px;
+                padding-bottom: 12px;
+                border-bottom: 2px solid rgba(0, 119, 182, 0.15);
+            }
+            .about h2 {
+                color: #0077b6;
+                margin-bottom: 16px;
+                padding-bottom: 12px;
+                border-bottom: 2px solid rgba(0, 119, 182, 0.1);
+            }
+            .about h3{
+               color: #0096c7;
+                margin-top: 20px;
+                margin-bottom: 8px;
+            }
+            /* ---Main_list--- */
+
+
+            .impact-table {
+              border-collapse: collapse;
+              width: fit-content;
+              margin: 16px 0;
+              background: #f0f8ff;
+              border-radius: 10px;
+              padding: 10px;
+            }
+
+            .impact-table td {
+              padding: 6px 14px;
+              font-size: 0.9rem;
+              color: #03045e;
+              border: none;
+            }
+            .impact-table tr:hover {
+              background: #f0f8ff;
+            }
+            .impact-table td:first-child {
+              font-weight: 600;
+
+            }
+
+            /*-----Validation Page------*/
+
+
+            .validation-part {
+                  background: #ffffff;
+                padding: 32px;
+                border-radius: 14px;
+                box-shadow: 0 2px 8px rgba(3, 4, 94, 0.08);
+                margin-bottom: 32px;
+            }
+            .validation-part h2 {
+                color: #0077b6;
+                margin-bottom: 16px;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
+            .validation-part h3{
+              color: #002d80;
+              margin-top: 20px;
+              margin-bottom: 8px;
+            }
+            .validation-part ul{
+              padding-left: 24px;
+              margin-bottom: 16px;
+            }
+            .validation-part ul li{
+              margin-bottom: 6px;
+              font-size: 15px;
+            }
+            .editor-main-content {
+                flex: 0 0 800px;   /* fixed width */
+                max-width: 800px;
+            }
+
+            .validation-layout {
+                display: flex;
+                justify-content: flex-end;
+                padding-right: 40px; /* optional spacing from right edge */
+            }
+            /* Screenshot placeholder box */
+            .screenshot {
+                background: #caf0f8;
+                border: 2px dashed rgba(0, 119, 182, 0.3);
+                border-radius: 14px;
+                padding: 48px;
+                text-align: center;
+                color: #64748b;
+                margin: 16px 0;
+                font-size: 14px;
+            }
+            .Screenshot img {
+                width: 100%;
+                max-width: 900px;
+                height: auto;
+                border: 2px solid rgba(0, 180, 216, 0.4);
+                border-radius: 14px;
+                margin-bottom: 24px;
+                display: block;
+                box-shadow: 0 4px 16px rgba(3, 4, 94, 0.05);
+            }
+
+
+            /*------Action Impact Simulator---------*/
+            /*===== Hero Section ====== */
+            .ais-hero {
+              text-align: center;
+              padding: 40px 20px 20px;
+              color: white;
+              text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+            }
+
+            .ais-hero h1 {
+              font-size: 1.8rem;
+              font-weight: 700;
+              margin-bottom: 10px;
+            }
+
+            .ais-hero p {
+              font-size: 0.95rem;
+              margin-bottom: 5px;
+            }
+
+            /* ----Card_Grid---- */
+            .grid {
+              display: grid;
+              grid-template-columns: repeat(3, 1fr);
+              gap: 16px;
+              max-width: 900px;
+              margin: 20px auto;
+              padding: 0 20px;
+            }
+
+            /* ---- Action—Card----*/
+            .action {
+              background: rgba(255, 255, 255, 0.85);
+              border: 2px solid rgba(255, 255, 255, 0.6);
+              border-radius: 16px;
+              overflow: hidden;
+              cursor: pointer;
+              position: relative;
+              transition: transform 0.2s ease, border-color 0.2s ease;
+              backdrop-filter: blur(4px);
+            }
+
+            .action:hover {
+              transform: scale(1.03);
+              border-color: #4caf50;
+            }
+
+            /*----- Selected Card ---- */
+            .action.selected {
+              border: 2.5px solid #1565c0;
+              background: rgba(227, 242, 253, 0.9);
+            }
+
+            /* ----- Green tick on selected card ---- */
+            .action.selected::after {
+              content: "✓";
+              position: absolute;
+              top: 10px;
+              right: 10px;
+              width: 28px;
+              height: 28px;
+              background: #4caf50;
+              color: white;
+              border-radius: 50%;
+              font-size: 15px;
+              font-weight: 700;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              line-height: 28px;
+              text-align: center;
+            }
+
+            /* ---- Image ----- */
+            .act_images {
+              width: 100%;
+              height: 150px;
+              object-fit: cover;
+              border-radius: 12px 12px 0 0;
+              display: block;
+            }
+
+            /* ----- Card Title ----*/
+            .action h3 {
+              font-size: 1rem;
+              font-weight: 700;
+              color: #0d1f3c;
+              margin: 12px 14px 6px;
+            }
+
+            /* ------ Card Paragraph ---- */
+            .action p {
+              font-size: 0.85rem;
+              color: #555;
+              line-height: 1.5;
+              margin: 0 14px 10px;
+            }
+
+            /* ----- Points Badge ----- */
+            .points-badge {
+              display: block;
+              font-size: 0.88rem;
+              font-weight: 700;
+              color: #1a1a1a;
+              padding: 0 14px 14px;
+            }
+
+            /* ------ Feedback Area ------*/
+            .feedback {
+              max-width: 900px;
+              margin: 20px auto 40px;
+              padding: 22px 26px;
+              background: rgba(10, 30, 60, 0.75);
+              border: 1px solid rgba(255, 255, 255, 0.2);
+              border-radius: 16px;
+              color: white;
+            }
+
+            .feedback h2 {
+              font-size: 1.1rem;
+              font-weight: 700;
+              margin-bottom: 12px;
+              color: white;
+            }
+
+            .feedback p {
+              font-size: 0.95rem;
+              margin-bottom: 8px;
+              color: white;
+            }
+
+            /* ------Impact Level Colors ----- */
+            #Level.low {
+              background: #ffcdd2;
+              color: #b71c1c;
+              padding: 4px 14px;
+              border-radius: 20px;
+              font-weight: 700;
+            }
+
+            #Level.medium {
+              background: #fff9c4;
+              color: #f57f17;
+              padding: 4px 14px;
+              border-radius: 20px;
+              font-weight: 700;
+            }
+
+            #Level.high {
+              background: #c8e6c9;
+              color: #1b5e20;
+              padding: 4px 14px;
+              border-radius: 20px;
+              font-weight: 700;
+            }
+            /* ── Button Row ── */
+            .btn-row {
+              display: flex;
+              gap: 10px;
+              margin-top: 14px;
+            }
+
+            /* ── Reset Button ── */
+            #reset-btn {
+              background: white;
+              color: #333;
+              border: 1.5px solid #ccc;
+              border-radius: 8px;
+              padding: 8px 20px;
+              font-size: 0.9rem;
+              font-weight: 700;
+              cursor: pointer;
+            }
+
+            #reset-btn:hover {
+              background: #f0f0f0;
+            }
+
+            /* ── Suggest Button ── */
+            .suggest-btn {
+              background: #2e7d32;
+              color: white;
+              border: none;
+              border-radius: 8px;
+              padding: 8px 20px;
+              font-size: 0.9rem;
+              font-weight: 700;
+              cursor: pointer;
+            }
+
+            .suggest-btn:hover {
+              background: #1b5e20;
+            }
+        </style>
+        <meta name="description" content="Learn about coral reef conservation, why reefs are important, and how students can help protect marine ecosystems.">
+    </head>
+    <body>
+        <!--Top anchor for go to top button-->
+        <a id="top"></a>
+
+        <!--Header & Nav-->
+        <header>
+            <div class="header-container">
+                 <div class="logo">
+                <img src="images/abstract-blue-swirling-vortex-digital-art-piece.png" alt="OceanGuard Logo" class="nav-logo">
+            </div>
+                <nav aria-label="Main Navigation">
+                    <ul>
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="ais.html">Action Impact Simulator</a></li>
+                        <li><a href="feedback.html">Feedback</a></li>
+                        <li><a href="team.html">Team</a></li>
+                        <li><a href="sitemap.html">Sitemap</a></li>
+                    </ul>
+                </nav>
+                <!-- User Profile Icon -->
+                <a href="profile.html" class="profile-icon" aria-label="User Profile" title="User Profile">👤 Profile</a>
+            </div>
+        </header>
+
+        <main id="main-content">
+
+            <!-- Hero Banner -->
+            <section class="hero" aria-label="Content page banner">
+                <h1>Coral Reef Protection &amp; Sustainability.</h1>
+                <p>Learn why coral reefs are vital and how you can help protect these important marine ecosystems.</p>
+            </section>
+
+            <!-- Page Navigation -->
+            <nav class="page-nav" aria-label="Page sections">
+                <h2>📋 On This Page</h2>
+                <ul>
+                    <li><a href="#importance">The Importance of Coral Reefs</a></li>
+                    <li><a href="#threats">Threats to Coral Reefs</a></li>
+                    <li><a href="#affects">How It Affects Marine Life</a></li>
+                    <li><a href="#actions">Actions Students Can Take</a></li>
+                </ul>
+            </nav>
+
+            <!-- Section 1: Importance of Coral Reefs -->
+            <section id="importance" class="content-st_2">
+                <h2>The Importance of Coral Reefs</h2>
+                <div class="Sub_content">
+                    <img src="images/the_importance_of_corels.png" alt="Colorful coral reef filled with diverse marine life including fish, corals, and sea plants">
+                    <div class="text-content">
+                        <p>Coral reefs are among the most diverse ecosystems on Earth. They support thousands of marine species, protect coastlines from wave damage, and provide food and income for millions of people.
+                        Often called the "rainforests of the sea," coral reefs play a major role in maintaining ocean health.
+                        They also attract tourism, support fishing communities, and help balance marine ecosystems.
+                        Protecting coral reefs means protecting biodiversity, coastal livelihoods, and the future of our oceans.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 2: Threats to Coral Reefs -->
+            <section id="threats" class="content-st_2">
+                <h2>Threats to Coral Reefs</h2>
+                <div class="Sub_content">
+                    <div class="text-content">
+                        
+                        <p>Coral reefs face serious threats from both natural and human causes. One of the biggest dangers is coral bleaching, which happens when ocean temperatures rise and corals lose the algae they need to survive.
+                        Pollution from plastic waste, chemicals, and sewage harms reef water quality. Overfishing removes important species that help reefs stay healthy. Coastal development, boat damage, and destructive fishing practices can also break or destroy reef structures.
+                        Without protection, coral reefs may continue to disappear at an alarming rate.</p>
+                    </div>
+                    <img src="images/Threats_to_Coral_Reefs.png" alt="Coral reef damaged by pollution, overfishing, and environmental stress with broken and dying corals" >
+                </div>
+            </section>
+
+            <!-- Section 3: How It Affects Marine Life -->
+            <section id="affects" class="content-st_2">
+                <h2>How It Affects Marine Life</h2>
+                <div class="Sub_content">
+                    <img src="images/affects.png" alt="Marine animals like fish and sea turtles struggling in a damaged coral reef habitat">
+                    <div class="text-content">
+                        
+                        <p>Many marine animals depend on coral reefs for survival. Fish, sea turtles, crabs, and other creatures use reefs as shelter from predators and as places to feed and reproduce.
+                        When coral reefs are damaged, marine species lose their homes and food sources. This can reduce fish populations, disturb the food chain, and lower biodiversity. A damaged reef affects not only corals themselves, but the entire ocean community connected to them.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 4: Actions Students Can Take -->
+            <section id="actions" class="content-st_2">
+                <h2>Actions Students Can Take</h2>
+                <div class="Sub_content">
+                    <div class="text-content">
+                        
+                        <div class="text-group">
+                            <p>Students can play an important role in coral reef conservation. Here are some simple actions:</p>
+                            <ul>
+                                <li>Reduce plastic use by carrying reusable bottles, bags, and containers.</li>
+                                <li>Save water to reduce runoff and pollution entering oceans.</li>
+                                <li>Join clean-up campaigns at beaches, rivers, or school grounds.</li>
+                                <li>Spread awareness by teaching others about coral reef protection.</li>
+                                <li>Support sustainable seafood and eco-friendly products.</li>
+                                <li>Respect marine life by not buying coral jewelry or souvenirs made from reefs.</li>
+                                <li>Take part in school projects related to ocean conservation.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <img src="images/actions.png" alt="Students participating in ocean conservation activities such as beach clean-ups and awareness campaigns">
+                </div>
+            </section>
+
+        </main>
+
+        <!--Go to Top-->
+        <a href="#top" class="go-to-top" aria-label="Go to top of page" title="Back to top">↑</a>
+
+        <!-- ===== Footer ===== -->
+    <footer>
+        <div class="footer-container">
+            <!-- Left Side: Logo + SDG Text -->
+            <div class="footer-brand">
+                <img src="images/abstract-blue-swirling-vortex-digital-art-piece.png" alt="OceanGuard Logo"
+                    class="footer-logo-img">
+                <div class="footer-sdg">
+                    <p class="sdg-label">SUSTAINABLE<br>DEVELOPMENT</p>
+                    <p class="sdg-goals">G&#127760;ALS</p>
+                </div>
+            </div>
+            <!-- Middle: Info Links -->
+            <div class="footer-editors">
+                <h3>Information</h3>
+                <a href="validation_ST1.html">Validation (ST1)</a>
+                <a href="validation_ST2.html">Validation (ST2)</a>
+                <a href="validation_ST3.html">Validation (ST3)</a>
+                <a href="validation_ST4.html">Validation (ST4)</a>
+            </div>
+            <!-- Right Side: Editors -->
+            <div class="footer-editors">
+                <h3>Page Editors</h3>
+                <a href="pageEditor_ST1.html">Student 1</a>
+                <a href="pageEditor_ST2.html">Student 2</a>
+                <a href="pageEditor_ST3.html">Student 3</a>
+                <a href="pageEditor_ST4.html">Student 4</a>
+            </div>
+        </div>
+        <!-- Bottom Section: Copyright -->
+        <div class="footer-bottom">
+            <p>&copy; 2025 WebDev Group 4</p>
+        </div>
+    </footer>
+    </body>
+</html>

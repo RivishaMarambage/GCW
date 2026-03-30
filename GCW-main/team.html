@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .team-members{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .team-sec h1{
+            text-align: center;
+            font-size: 4.5em;
+            color: #ffffff;
+            letter-spacing: 2px;
+        }
+
+        .member{
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            width: 300px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+            display: inline-block;
+        }
+
+        .member-photo{
+            width: 100%;
+            height: auto;
+            border-radius: 50%;
+            margin-bottom: 2px;
+        }
+        .member h2{
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .member p{
+            font-size: 20px;
+            color: #666666;
+            margin: 5px 0;
+        }
+
+        .member-info {
+            position: absolute;
+            top: 160px; /* below image */
+            left: 50%;
+            transform: translateX(-50%) translateY(180px);
+
+            background: white;
+            padding: 5px;
+
+            width: 300px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+
+            opacity: 0;
+            transition: 0.3s;
+        }
+
+        .member:hover.member-photo{
+            transform: scale(1.1);
+        }
+
+        .member:hover .member-info {
+            opacity: 2;
+            max-height: 300px;
+            margin-top: 10px;
+            background: rgb(6, 29, 97);
+            transition: 0.2s;
+            font-size: 0.9em;
+            color: white;
+        }
+
+        .member:focus {
+            outline: 3px solid #500a60;
+        }
+
+        .team-desc{
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+            font-size: 20px;
+            color: #ffffff;
+            opacity: 0.8;
+        }
+    </style>
+
+    </head>
+    <body>
+        <header>
+            <div class="header-container">
+
+                <div class="logo">
+                    <a href="home.html" aria-label="Go to Home">
+                        <img src="images/abstract-blue-swirling-vortex-digital-art-piece.png" alt="OceanGuard Logo" class="nav-logo">
+                    </a>
+                </div>
+
+                <nav aria-label="Main Navigation">
+                    <ul>
+                        <li><a href="home.html" >Home</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="ais.html">Action Impact Simulator</a></li>
+                        <li><a href="feedback.html" >Feedback</a></li>
+                        <li><a href="team.html" class="active">Team</a></li>
+                        <li><a href="sitemap.html">Sitemap</a></li>
+                    </ul>
+                </nav>
+
+                <a href="profile.html" class="profile-icon" aria-label="User Profile" title="User Profile">👤 Profile</a>
+            </div>
+        </header>
+<br><br><br>
+        <section class="team-sec">
+            <h1>
+                MEET THE TEAM
+            </h1><br>
+            <p class="team-desc">
+                We are a team of four students who are passionate about ocean conservation and dedicated to <br>
+                creating impactful solutions to address the issue of plastic pollution in our oceans. Each <br>
+                member brings unique skills and perspectives to the table, allowing us to collaborate effectively<br>
+                 and make a meaningful difference in protecting our marine ecosystems.
+            </p><br><br><br>
+            <div class="team-members">
+                <div class="member">
+                    <img src="images/minutha.png" alt="Team Member 1" class="member-photo">
+
+                    <h2>Minutha Wetthasinghe</h2>
+                    <div class="member-info" tabindex="0">
+                        <p>Student 3</p>
+                        <p>Team Leader</p>
+                        <p>Feedback page creator</p>
+                        <p>Team page creator</p>
+                        <p>Content page : ST3</p>
+                        <p>Validation page : ST3</p>
+                    </div>
+
+                </div>
+                <div class="member" tabindex="0">
+                    <img src="images/rivisha.png" alt="Team Member 2" class="member-photo">
+                    <h2>Rivisha Marambage</h2>
+                    <div class="member-info">
+                        <p>Student 1</p>
+                        <p>Template</p>
+                        <p>Home page creator</p>
+                        <p>Gallery page creator</p>
+                        <p>Content page : ST1</p>
+                        <p>Validation page : ST1</p>
+                    </div>
+                </div>
+                <div class="member" tabindex="0">
+                    <img src="images/amanyaaa.png" alt="Team Member 3" class="member-photo">
+                    <h2>Amanya Rubasinghe</h2>
+                    <div class="member-info">
+                        <p>Student 2</p>
+                        <p>Splash Page creator</p>
+                        <p>AIS page creator</p>
+                        <p>Content page : ST2</p>
+                        <p>Validation page : ST2</p>
+                    </div>
+                </div>
+                <div class="member" tabindex="0">
+                    <img src="images/image.png" alt="Team Member 4" class="member-photo" id="member4">
+                    <h2>Nawoda Jayakody</h2>
+                    <div class="member-info">
+                        <p>Student 4</p>
+                        <p>Profile page creator</p>
+                        <p>Site map creator</p>
+                        <p>Content page : ST4</p>
+                        <p>Validation page : ST4</p>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </section>
+<br><br><br><br><br><br><br><br><br><br>
+
+            <!-- ===== Footer ===== -->
+    <footer>
+        <div class="footer-container">
+            <!-- Left Side: Logo + SDG Text -->
+            <div class="footer-brand">
+                <img src="images/abstract-blue-swirling-vortex-digital-art-piece.png" alt="OceanGuard Logo"
+                    class="footer-logo-img">
+                <div class="footer-sdg">
+                    <p class="sdg-label">SUSTAINABLE<br>DEVELOPMENT</p>
+                    <p class="sdg-goals">G&#127760;ALS</p>
+                </div>
+            </div>
+            <!-- Middle: Info Links -->
+            <div class="footer-editors">
+                <h3>Information</h3>
+                <a href="validation_ST1.html">Validation (ST1)</a>
+                <a href="validation_ST2.html">Validation (ST2)</a>
+                <a href="validation_ST3.html">Validation (ST3)</a>
+                <a href="validation_ST4.html">Validation (ST4)</a>
+            </div>
+            <!-- Right Side: Editors -->
+            <div class="footer-editors">
+                <h3>Page Editors</h3>
+                <a href="pageEditor_ST1.html">Student 1</a>
+                <a href="pageEditor_ST2.html">Student 2</a>
+                <a href="pageEditor_ST3.html">Student 3</a>
+                <a href="pageEditor_ST4.html">Student 4</a>
+            </div>
+        </div>
+        <!-- Bottom Section: Copyright -->
+        <div class="footer-bottom">
+            <p>&copy; 2025 WebDev Group 4</p>
+        </div>
+    </footer>
+
+
+
+
+
+    </body>
+</html>
