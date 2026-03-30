@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validation – Student 4 | OceanGuard</title>
+    <meta name="description" content="W3C HTML and CSS validation screenshots for Student 4 pages.">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="images/abstract-blue-swirling-vortex-digital-art-piece.png" alt="OceanGuard Logo"
+                    class="nav-logo">
+            </div>
+            <nav aria-label="Main Navigation">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="ais.html">Action Impact Simulator</a></li>
+                    <li><a href="feedback.html">Feedback</a></li>
+                    <li><a href="team.html">Team</a></li>
+                    <li><a href="sitemap.html">Sitemap</a></li>
+                </ul>
+            </nav>
+            <a href="profile.html" class="profile-icon" aria-label="User Profile">👤 Profile</a>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <section class="hero" id="top" aria-label="Validation page banner">
+            <h1>Validation Evidence – Student 4</h1>
+            <p>Student Name:Nawoda Jayakody, Team Name: WebDev Group 4, Role: Student 4</p>
+        </section>
+
+        <div class="editor-layout">
+            <aside class="sidebar-nav">
+                <p><a href="#top">Go top</a></p>
+                <h3 class="sidebar-title">Core pages developed:</h3>
+                <ul>
+                    <li>Student 4
+                        <ul>
+                            <li><a href="pageEditor_ST4.html#profile-page">User Profile</a></li>
+                            <li><a href="pageEditor_ST4.html#sitemap-page">Sitemap</a></li>
+                            <li><a href="pageEditor_ST4.html#content-page">Content Page</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="pageEditor_ST4.html#challenges-section">Challenges</a></li>
+                    <li><a href="pageEditor_ST4.html#accessibility-section">Accessibility</a></li>
+                    <li><a href="pageEditor_ST4.html#references-section">References</a></li>
+                </ul>
+            </aside>
+
+            <div class="editor-main-content">
+                <section class="editor-article">
+                    <h2>📋 Validation Process</h2>
+                    <p>Each page was validated using the <a href="https://validator.w3.org/" target="_blank"
+                            rel="noopener">W3C Markup Validation Service</a>. Screenshots below show evidence of
+                        successful validation.</p>
+                </section>
+
+                <section class="validation-section" id="val-profile">
+                    <h2>👤 profile.html – User Dashboard Report</h2>
+                    <p><em>Links: <a href="profile.html">View Page</a> | <a href="pageEditor_ST4.html#profile-page">View
+                                Documentation</a></em></p>
+
+                    <img src="images/profile_validation.png" alt="W3C validation for profile.html"
+                        class="validation-img">
+
+                    <h3>Validation Notes</h3>
+                    <ul>
+                        <li><strong>Dynamic Content:</strong> Validated that the JavaScript-driven
+                            <code>innerHTML</code> updates do not break the HTML5 structure.</li>
+                        <li><strong>Aria Compliance:</strong> Confirmed that custom progress bar containers use valid
+                            ARIA attributes for screen reader compatibility.</li>
+                        <li><strong>Multimedia:</strong> Validated the <code>&lt;video&gt;</code> background tag
+                            structure and fallback logic.</li>
+                    </ul>
+
+                    <h3>Reflection</h3>
+                    <p>The User Profile page required careful auditing of the interaction between CSS transitions and
+                        the JavaScript prompt logic. By adhering to W3C standards, I ensured that the interactive
+                        "Guardian Rank" dashboard remains stable even when users provide unexpected input during the
+                        setup process.</p>
+                </section>
+
+                <section class="validation-section" id="val-sitemap">
+                    <h2>🗺️ sitemap.html – Interactive SVG Report</h2>
+                    <p><em>Links: <a href="sitemap.html">View Page</a> | <a href="pageEditor_ST4.html#sitemap-page">View
+                                Documentation</a></em></p>
+
+                    <img src="images/Sitemap_validation.png" alt="W3C validation for sitemap.html"
+                        class="validation-img">
+
+                    <h3>Validation Notes</h3>
+                    <ul>
+                        <li><strong>SVG Schema:</strong> The <code>&lt;svg&gt;</code> element was validated against
+                            XML/HTML5 namespaces to ensure the <code>viewBox</code> scales correctly.</li>
+                        <li><strong>Interactive Nodes:</strong> Confirmed that nested anchor tags
+                            (<code>&lt;a&gt;</code>) within the SVG coordinate system are structurally valid.</li>
+                        <li><strong>Fluidity:</strong> Verified that the removal of fixed width/height attributes in
+                            favor of percentage-based widths passed without warnings.</li>
+                    </ul>
+
+                    <h3>Reflection</h3>
+                    <p>Developing the sitemap was the most technical part of the individual tasks. Using the
+                        <code>viewBox</code> attribute was essential for responsiveness. Validation confirmed that the
+                        complex nested structure of rectangles and text nodes remains accessible and
+                        standards-compliant.</p>
+                </section>
+
+                <section class="validation-section" id="val-content">
+                    <h2>📄 content_ST4.html – Information Page Report</h2>
+                    <p><em>Links: <a href="content_ST4.html">View Page</a> | <a
+                                href="pageEditor_ST4.html#content-page">View Documentation</a></em></p>
+
+                    <img src="images/content_validation_ST4.jpg" alt="W3C validation for content_ST4.html"
+                        class="validation-img">
+
+                    <h3>Technical Notes</h3>
+                    <ul>
+                        <li><strong>Hierarchy:</strong> Corrected initial heading skip errors to maintain a logical
+                            <code>&lt;h1&gt;</code> to <code>&lt;h2&gt;</code> flow.</li>
+                        <li><strong>Asset Naming:</strong> Successfully resolved "Illegal Character" errors by renaming
+                            image files to follow web-safe naming conventions.</li>
+                    </ul>
+
+                    <h3>Reflection</h3>
+                    <p>This page serves as a key SDG 14 informational resource. Validation taught me the importance of
+                        small details, such as the impact of spaces in filenames on URL stability. The clean report
+                        ensures the content is easily indexed by search engines and readable by all users.</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <img src="images/abstract-blue-swirling-vortex-digital-art-piece.png" alt="OceanGuard Logo"
+                    class="footer-logo-img">
+                <div class="footer-sdg">
+                    <p class="sdg-label">SUSTAINABLE<br>DEVELOPMENT</p>
+                    <p class="sdg-goals">G&#127760;ALS</p>
+                </div>
+            </div>
+            <div class="footer-editors">
+                <h3>Information</h3>
+                <a href="validation_ST1.html">Validation (ST1)</a>
+                <a href="validation_ST2.html">Validation (ST2)</a>
+                <a href="validation_ST3.html">Validation (ST3)</a>
+                <a href="validation_ST4.html" class="active">Validation (ST4)</a>
+            </div>
+            <div class="footer-editors">
+                <h3>Page Editors</h3>
+                <a href="pageEditor_ST1.html">Student 1</a>
+                <a href="pageEditor_ST2.html">Student 2</a>
+                <a href="pageEditor_ST3.html">Student 3</a>
+                <a href="pageEditor_ST4.html">Student 4</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 WebDev Group 4</p>
+        </div>
+    </footer>
+</body>
+
+</html>
