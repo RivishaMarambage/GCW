@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page Editor – Student 4 </title>
-    <meta name="description" content="Page editor documentation for Student 4 detailing the Sitemap, User Profile, Content page, and overall code validation.">
+    <meta name="description"
+        content="Page editor documentation for Student 4 detailing the Sitemap, User Profile, Content page, and overall code validation.">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -14,11 +15,12 @@
     <header>
         <div class="header-container">
             <div class="logo">
-                <img src="images/abstract-blue-swirling-vortex-digital-art-piece.png" alt="OceanGuard Logo" class="nav-logo">
+                <img src="images/abstract-blue-swirling-vortex-digital-art-piece.png" alt="OceanGuard Logo"
+                    class="nav-logo">
             </div>
             <nav aria-label="Main Navigation">
                 <ul>
-                    <li><a href="home.html">Home</a></li>
+                    <li><a href="index.html">Home</a></li>
                     <li><a href="gallery.html">Gallery</a></li>
                     <li><a href="ais.html">Action Impact Simulator</a></li>
                     <li><a href="feedback.html">Feedback</a></li>
@@ -34,7 +36,8 @@
 
         <section class="hero" id="top" aria-label="Page editor banner">
             <h1>Page Editor – Student 4</h1>
-            <p>Documentation of pages implemented, technical challenges, accessibility considerations, and team collaboration.</p>
+            <p>Documentation of pages implemented, technical challenges, accessibility considerations, and team
+                collaboration.</p>
         </section>
 
         <div class="editor-layout">
@@ -59,220 +62,298 @@
             </aside>
 
             <div class="editor-main-content">
-                
+
                 <article class="editor-article">
                     <h2>👤 Student Information</h2>
                     <p><strong>Name:</strong> Nawoda Jayakody</p>
                     <p><strong>Role:</strong> Student 4 – Sitemap, Profile Page, Content Page</p>
                     <p><strong>Student ID:</strong>20250236/w2181530</p>
-                    <p><strong>Responsibilities:</strong> Designing and building the interactive SVG Sitemap, developing the User Profile dashboard with progress tracking, creating a thematic Content page, and compiling the W3C code Validation report.</p>
+                    <p><strong>Responsibilities:</strong> Designing and building the interactive SVG Sitemap, developing
+                        the User Profile dashboard with progress tracking, creating a thematic Content page, and
+                        compiling the W3C code Validation report.</p>
                 </article>
 
                 <article class="editor-article">
                     <h3 id="profile-page">User Profile Dashboard (profile.html)</h3>
                     <h4>Technical Description & Logic Engineering</h4>
-                    <p>The profile page was developed as a <strong>Dynamic Progress Tracker</strong> that manages user data
-                     through custom JavaScript state synchronization.</p>
-                    
+                    <p>The profile page was developed as a <strong>Dynamic Progress Tracker</strong> that manages user
+                        data
+                        through custom JavaScript state synchronization.</p>
+
                     <ul>
-                        <li><strong>State Persistence:</strong> Utilized <strong>Global Scope Variables</strong> (<code>count1, count2, count3</code>) 
-                            to maintain a persistent "Scoreboard" of user progress.This ensures that data remains consistent
-                             across different interaction modes (Initial Entry vs. Skip Correction).</li>
-                        
-                        <li><strong>Idempotent Validation Logic:</strong> To prevent "Double Counting" bugs, I engineered a nested conditional check:
+                        <li><strong>State Persistence:</strong> Utilized <strong>Global Scope Variables</strong>
+                            (<code>count1, count2, count3</code>)
+                            to maintain a persistent "Scoreboard" of user progress.This ensures that data remains
+                            consistent
+                            across different interaction modes (Initial Entry vs. Skip Correction).</li>
+
+                        <li><strong>Idempotent Validation Logic:</strong> To prevent "Double Counting" bugs, I
+                            engineered a nested conditional check:
                             <pre><code>if (element.innerHTML === "") { ... count++; }</code></pre>
-                            This ensures that the progress bar and fraction only increment when a field transitions from empty to filled, maintaining a strict 0-to-9 data scale. 
+                            This ensures that the progress bar and fraction only increment when a field transitions from
+                            empty to filled, maintaining a strict 0-to-9 data scale.
                         </li>
-                    
-                        <li><strong>Multi-Modal Feedback:</strong> The UI provides three layers of real-time feedback via the <code>updateProgress()</code> function:
+
+                        <li><strong>Multi-Modal Feedback:</strong> The UI provides three layers of real-time feedback
+                            via the <code>updateProgress()</code> function:
                             <ol>
                                 <li><strong>Quantitative:</strong> A CSS linear-gradient progress bar.</li>
                                 <li><strong>Relative:</strong> A percentage display (e.g., 66%).</li>
-                                <li><strong>Absolute:</strong> A completion fraction (e.g., 6/9) to reduce user cognitive load.</li>
+                                <li><strong>Absolute:</strong> A completion fraction (e.g., 6/9) to reduce user
+                                    cognitive load.</li>
                             </ol>
                         </li>
-                    
-                        <li><strong>Conditional UI Masking:</strong> Implemented <strong>State-Dependent Visibility</strong> for the "Complete Skipped" buttons. Using the <code>.style.display = "none"</code> property, the buttons are programmatically hidden only once a section's specific DOM nodes are 100% validated as non-empty.</li>
-                    
-                        <li><strong>Visual Hierarchy:</strong> Leveraged <code>.innerHTML</code> for presentational markup, using <code>&lt;b&gt;</code> tags to create a clear distinction between system labels and user-provided data strings.</li>
+
+                        <li><strong>Conditional UI Masking:</strong> Implemented <strong>State-Dependent
+                                Visibility</strong> for the "Complete Skipped" buttons. Using the
+                            <code>.style.display = "none"</code> property, the buttons are programmatically hidden only
+                            once a section's specific DOM nodes are 100% validated as non-empty.</li>
+
+                        <li><strong>Visual Hierarchy:</strong> Leveraged <code>.innerHTML</code> for presentational
+                            markup, using <code>&lt;b&gt;</code> tags to create a clear distinction between system
+                            labels and user-provided data strings.</li>
                     </ul>
-                    
+
                     <h4>Testing & Validation</h4>
-                    <p>Extensive manual testing was conducted to verify <strong>Edge Case Handling</strong>. I confirmed that clicking "Cancel" on a prompt or providing an empty string does not trigger the increment operator, ensuring the "Guardian Rank" progress remains accurate even with erratic user input.</p>
+                    <p>Extensive manual testing was conducted to verify <strong>Edge Case Handling</strong>. I confirmed
+                        that clicking "Cancel" on a prompt or providing an empty string does not trigger the increment
+                        operator, ensuring the "Guardian Rank" progress remains accurate even with erratic user input.
+                    </p>
                     <p><a href="validation_ST4.html">Link to validation page</a></p>
                     <p><a href="profile.html">Link to the page</a></p>
 
                     <h3 id="sitemap-page">Sitemap (sitemap.html)</h3>
                     <h4>Technical Description</h4>
-                    <p>The sitemap was built entirely from scratch using Scalable Vector Graphics (SVG) rather than a static image or standard HTML divs. This ensures resolution independence and interactivity.</p>
+                    <p>The sitemap was built entirely from scratch using Scalable Vector Graphics (SVG) rather than a
+                        static image or standard HTML divs. This ensures resolution independence and interactivity.</p>
                     <ul>
-                        <li><strong>Coordinate System:</strong> Utilised a <code>viewBox="0 0 1200 660"</code> to create a responsive, mathematical grid. A strict 60px vertical rhythm was used to layout the sub-page branches.</li>
-                        <li><strong>Interactive Nodes:</strong> Shapes (<code>&lt;rect&gt;</code>) and text were wrapped in standard <code>&lt;a&gt;</code> tags to create clickable website navigation directly inside the SVG graphic.</li>
-                        <li><strong>CSS Styling:</strong> Implemented a hierarchical color scheme using CSS classes (<code>.node-parent</code>, <code>.node-child</code>) to represent different levels of website depth visually. Hover transitions were added to improve user feedback.</li>
-                        <li><strong>Structural Layering:</strong> Lines were coded before shapes to take advantage of the SVG painter's algorithm, ensuring connecting branches rendered cleanly behind the interactive buttons.</li>
+                        <li><strong>Coordinate System:</strong> Utilised a <code>viewBox="0 0 1200 660"</code> to create
+                            a responsive, mathematical grid. A strict 60px vertical rhythm was used to layout the
+                            sub-page branches.</li>
+                        <li><strong>Interactive Nodes:</strong> Shapes (<code>&lt;rect&gt;</code>) and text were wrapped
+                            in standard <code>&lt;a&gt;</code> tags to create clickable website navigation directly
+                            inside the SVG graphic.</li>
+                        <li><strong>CSS Styling:</strong> Implemented a hierarchical color scheme using CSS classes
+                            (<code>.node-parent</code>, <code>.node-child</code>) to represent different levels of
+                            website depth visually. Hover transitions were added to improve user feedback.</li>
+                        <li><strong>Structural Layering:</strong> Lines were coded before shapes to take advantage of
+                            the SVG painter's algorithm, ensuring connecting branches rendered cleanly behind the
+                            interactive buttons.</li>
                     </ul>
                     <h4>Accessibility</h4>
-                    <p>Non-clickable category headers were wrapped in <code>&lt;g&gt;</code> (group) tags rather than anchor links to prevent user confusion. The container was styled with <code>overflow-x: auto</code> to ensure horizontal scrolling on mobile devices rather than breaking the layout.</p>
+                    <p>Non-clickable category headers were wrapped in <code>&lt;g&gt;</code> (group) tags rather than
+                        anchor links to prevent user confusion. The container was styled with
+                        <code>overflow-x: auto</code> to ensure horizontal scrolling on mobile devices rather than
+                        breaking the layout.</p>
                     <p><a href="validation_ST4.html">Link to validation page</a></p>
                     <p><a href="sitemap.html">Link to the page</a></p>
 
                     <h3 id="content-page">Content Page (content_ST4.html)</h3>
                     <h4>Technical Description</h4>
-                    <p>A detailed informational page dedicated to exploring the impact of our actions on marine ecosystems.</p>
+                    <p>A detailed informational page dedicated to exploring the impact of our actions on marine
+                        ecosystems.</p>
                     <ul>
-                        <li><strong>Semantic Structure:</strong> Organized using clear <code>&lt;h2&gt;</code> and <code>&lt;h3&gt;</code> hierarchies for readability.</li>
-                        <li><strong>Layout:</strong> Used the global <code>.content-with-image</code> Flexbox class to present text side-by-side with relevant imagery.</li>
-                        <li><strong>Internal Navigation:</strong> Built an internal menu using anchor links to allow users to quickly jump between different sections of the text.</li>
+                        <li><strong>Semantic Structure:</strong> Organized using clear <code>&lt;h2&gt;</code> and
+                            <code>&lt;h3&gt;</code> hierarchies for readability.</li>
+                        <li><strong>Layout:</strong> Used the global <code>.content-with-image</code> Flexbox class to
+                            present text side-by-side with relevant imagery.</li>
+                        <li><strong>Internal Navigation:</strong> Built an internal menu using anchor links to allow
+                            users to quickly jump between different sections of the text.</li>
                     </ul>
                     <p><a href="validation_ST4.html">Link to validation page</a></p>
                     <p><a href="content_ST4.html">Link to the page</a></p>
-                    
+
                     <h3 id="validation-page">Validation (validation_ST4.html)</h3>
-                    <p>Responsible for compiling the W3C code validation screenshots for Student 4 pages, proving that all HTML and CSS files meet professional, error-free web standards.</p>
+                    <p>Responsible for compiling the W3C code validation screenshots for Student 4 pages, proving that
+                        all HTML and CSS files meet professional, error-free web standards.</p>
                 </article>
 
                 <article class="editor-article" id="challenges-section">
-                    I understand—the previous version felt a bit like a textbook! Let's dial back the complex jargon and make the descriptions more natural. I have replaced terms like "Idempotent State Synchronization" and "Cognitive Load Optimization" with clearer headers while keeping the strong story of how you fixed your code.
+                    I understand—the previous version felt a bit like a textbook! Let's dial back the complex jargon and
+                    make the descriptions more natural. I have replaced terms like "Idempotent State Synchronization"
+                    and "Cognitive Load Optimization" with clearer headers while keeping the strong story of how you
+                    fixed your code.
 
                     📄 Simplified Challenges & Lessons (Update for pageEditor_ST4.html)
                     HTML
                     <article class="editor-article" id="challenges-section">
                         <h2>🧠 Challenges and Lessons Learned</h2>
-                        
+
                         <h4>1. Mapping the Sitemap (SVG Grid Planning)</h4>
-                        <p>The most difficult visual task was creating the Sitemap from scratch using SVG code. Because I wasn't using a simple image, I had to plan the exact position of every box and line on a mathematical grid.</p>
+                        <p>The most difficult visual task was creating the Sitemap from scratch using SVG code. Because
+                            I wasn't using a simple image, I had to plan the exact position of every box and line on a
+                            mathematical grid.</p>
                         <ul>
-                            <li><strong>The Problem:</strong> At first, the lines connecting the pages didn't touch the boxes perfectly, leaving small gaps at the corners that looked unprofessional.</li>
-                            <li><strong>The Solution:</strong> I researched how SVG lines work and used a property called <code>stroke-linecap: round</code>. This smoothed out the joints where lines met, making the whole map look like one solid structure.</li>
-                            <li><strong>Lesson:</strong> I learned how to use the CSS <strong>Box Model</strong> and <strong>Overflow</strong> properties to make sure this large map didn't break the layout on small mobile screens.</li>
+                            <li><strong>The Problem:</strong> At first, the lines connecting the pages didn't touch the
+                                boxes perfectly, leaving small gaps at the corners that looked unprofessional.</li>
+                            <li><strong>The Solution:</strong> I researched how SVG lines work and used a property
+                                called <code>stroke-linecap: round</code>. This smoothed out the joints where lines met,
+                                making the whole map look like one solid structure.</li>
+                            <li><strong>Lesson:</strong> I learned how to use the CSS <strong>Box Model</strong> and
+                                <strong>Overflow</strong> properties to make sure this large map didn't break the layout
+                                on small mobile screens.</li>
                         </ul>
-                    
+
                         <h4>2. Fixing the Progress Bar (The "Over-Counting" Bug)</h4>
-                        <p>A major logic error happened while building the User Profile. If a user clicked the "Complete Skipped" button more than once, the progress bar would keep adding points forever, eventually going way past 100%.</p>
+                        <p>A major logic error happened while building the User Profile. If a user clicked the "Complete
+                            Skipped" button more than once, the progress bar would keep adding points forever,
+                            eventually going way past 100%.</p>
                         <ul>
-                            <li><strong>The Problem:</strong> The code was just adding +1 every time the button was pressed. It wasn't "smart" enough to check if the information was already there.</li>
-                            <li><strong>The Solution:</strong> I changed the code to check the screen first. Now, the computer looks at the display box to see if it is empty. It only adds a point if the box is actually blank. This makes the counting "self-correcting."</li>
-                            <li><strong>Lesson:</strong> This taught me <strong>Defensive Programming</strong>—writing code that doesn't break even if a user clicks things in the wrong order or multiple times.</li>
+                            <li><strong>The Problem:</strong> The code was just adding +1 every time the button was
+                                pressed. It wasn't "smart" enough to check if the information was already there.</li>
+                            <li><strong>The Solution:</strong> I changed the code to check the screen first. Now, the
+                                computer looks at the display box to see if it is empty. It only adds a point if the box
+                                is actually blank. This makes the counting "self-correcting."</li>
+                            <li><strong>Lesson:</strong> This taught me <strong>Defensive Programming</strong>—writing
+                                code that doesn't break even if a user clicks things in the wrong order or multiple
+                                times.</li>
                         </ul>
-                    
+
                         <h4>3. Better Progress Feedback (Percentage and Fractions)</h4>
-                        <p>I realized that just having a percentage bar (like 33%) wasn't helpful enough for users because they didn't know exactly how many questions were left to answer.</p>
+                        <p>I realized that just having a percentage bar (like 33%) wasn't helpful enough for users
+                            because they didn't know exactly how many questions were left to answer.</p>
                         <ul>
-                            <li><strong>The Problem:</strong> Percentages can be vague. Users often feel "estimation fatigue" when they can't see the exact number of steps remaining.</li>
-                            <li><strong>The Solution:</strong> I updated my <code>updateProgress()</code> function to show two things at once: the percentage and a fraction (like 3/9). I also made the "Complete Skipped" button disappear automatically, but only when a section is truly finished.</li>
-                            <li><strong>Lesson:</strong> I learned that good web design is about <strong>Visibility of System Status</strong>—always making sure the user knows exactly where they stand in a process.</li>
+                            <li><strong>The Problem:</strong> Percentages can be vague. Users often feel "estimation
+                                fatigue" when they can't see the exact number of steps remaining.</li>
+                            <li><strong>The Solution:</strong> I updated my <code>updateProgress()</code> function to
+                                show two things at once: the percentage and a fraction (like 3/9). I also made the
+                                "Complete Skipped" button disappear automatically, but only when a section is truly
+                                finished.</li>
+                            <li><strong>Lesson:</strong> I learned that good web design is about <strong>Visibility of
+                                    System Status</strong>—always making sure the user knows exactly where they stand in
+                                a process.</li>
                         </ul>
                     </article>
-    
+
                     <article class="editor-article" id="accessibility-section">
                         <h2>♿ Accessibility</h2>
                         <ul>
-                            <li><strong>Alt text:</strong> Every <code>&lt;img&gt;</code> element includes descriptive <code>alt</code> attributes that convey the image content and context.</li>
-                            <li><strong>Semantic HTML:</strong> Pages use <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;footer&gt;</code>, and <code>&lt;article&gt;</code> elements for proper document structure.</li>
-                            <li><strong>Visual Hierarchy:</strong> The sitemap uses a distinct cascading color palette to communicate depth and structure intuitively.</li>
-                            <li><strong>Readable contrast:</strong> Dark text is used on light backgrounds to ensure contrast ratios exceed WCAG AA requirements.</li>
-                            <li><strong>Responsive Containers:</strong> Large diagrams like the sitemap are contained within scrollable divs to prevent layout breaking on mobile.</li>
+                            <li><strong>Alt text:</strong> Every <code>&lt;img&gt;</code> element includes descriptive
+                                <code>alt</code> attributes that convey the image content and context.</li>
+                            <li><strong>Semantic HTML:</strong> Pages use <code>&lt;header&gt;</code>,
+                                <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;footer&gt;</code>, and
+                                <code>&lt;article&gt;</code> elements for proper document structure.</li>
+                            <li><strong>Visual Hierarchy:</strong> The sitemap uses a distinct cascading color palette
+                                to communicate depth and structure intuitively.</li>
+                            <li><strong>Readable contrast:</strong> Dark text is used on light backgrounds to ensure
+                                contrast ratios exceed WCAG AA requirements.</li>
+                            <li><strong>Responsive Containers:</strong> Large diagrams like the sitemap are contained
+                                within scrollable divs to prevent layout breaking on mobile.</li>
                         </ul>
                     </article>
-    
+
                     <article class="editor-article" id="compliance-section">
                         <h2>🔒 JANET Compliance</h2>
-                        <p>This website adheres to responsible web publishing standards as required by the JANET Acceptable Use Policy:</p>
+                        <p>This website adheres to responsible web publishing standards as required by the JANET
+                            Acceptable Use Policy:</p>
                         <ul>
-                            <li><strong>Lawful content:</strong> All content is original and educational, focusing on SDG 14.</li>
-                            <li><strong>No copyright infringement:</strong> Images are used with permissions or generated; all sources are cited.</li>
-                            <li><strong>Privacy:</strong> No personal data is collected or transmitted; no cookies are used.</li>
+                            <li><strong>Lawful content:</strong> All content is original and educational, focusing on
+                                SDG 14.</li>
+                            <li><strong>No copyright infringement:</strong> Images are used with permissions or
+                                generated; all sources are cited.</li>
+                            <li><strong>Privacy:</strong> No personal data is collected or transmitted; no cookies are
+                                used.</li>
                         </ul>
                     </article>
 
-                <article class="editor-article" id="meeting-log-section">
-                    <h2>📅 Group Meeting Log</h2>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Date</th>
-                                <th>Time</th>
-                                <th>Format</th>
-                                <th>Objective</th>
-                                <th>Attendance</th>
-                                <th>Individual Contribution</th>
-                            </tr>
-                        </thead>
-                <tbody>
-                    <tr>
-                        <td>March 5th 2026</td>
-                        <td>10:00 AM</td>
-                        <td>In-person</td>
-                        <td>Project kickoff – topic selection and role assignment</td>
-                        <td>All 4 members</td>
-                        <td>proposed the topic and assigned roles of they are confortable with </td>
-                    </tr>
-                    <tr>
-                        <td>March 6th 2026</td>
-                        <td>2:00 PM</td>
-                        <td>Online (Google meeting)</td>
-                        <td>Design planning – colour scheme, layout, and content outline</td>
-                        <td>All 4 members</td>
-                        <td>Started designing the colour scheme and layout of the teams page</td>
-                    </tr>
-                    <tr>
-                        <td>March 15th 2026</td>
-                        <td>11:00 AM</td>
-                        <td>Online(google meeting)</td>
-                        <td>Progress check – template and navigation review</td>
-                        <td>3 of 4 members</td>
-                        <td>Demonstrated completed template and navigation bar, received feedback</td>
-                    </tr>
-                    <tr>
-                        <td>March 20th 2026</td>
-                        <td>3:00 PM</td>
-                        <td>Online (Google meeting)</td>
-                        <td>Integration – combining individual pages into shared structure</td>
-                        <td>All 4 members</td>
-                        <td>Integrated all team members' content pages into the shared template</td>
-                    </tr>
-                    <tr>
-                        <td>March 24th 2026</td>
-                        <td>10:00 AM</td>
-                        <td>In-person</td>
-                        <td>Testing – cross-browser testing and bug fixes</td>
-                        <td>All 4 members</td>
-                        <td>Fixed responsive layout issues and validated HTML on all pages</td>
-                    </tr>
-                    <tr>
-                        <td>March 28th 2026</td>
-                        <td>1:00 PM</td>
-                        <td>In person</td>
-                        <td>Final review – documentation, validation, and submission prep</td>
-                        <td>All 4 members</td>
-                        <td>Completed page editor documentation and validation screenshots</td>
-                    </tr>
-                </tbody>
-                    </table>
-                </article>
+                    <article class="editor-article" id="meeting-log-section">
+                        <h2>📅 Group Meeting Log</h2>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Time</th>
+                                    <th>Format</th>
+                                    <th>Objective</th>
+                                    <th>Attendance</th>
+                                    <th>Individual Contribution</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>March 5th 2026</td>
+                                    <td>10:00 AM</td>
+                                    <td>In-person</td>
+                                    <td>Project kickoff – topic selection and role assignment</td>
+                                    <td>All 4 members</td>
+                                    <td>proposed the topic and assigned roles of they are confortable with </td>
+                                </tr>
+                                <tr>
+                                    <td>March 6th 2026</td>
+                                    <td>2:00 PM</td>
+                                    <td>Online (Google meeting)</td>
+                                    <td>Design planning – colour scheme, layout, and content outline</td>
+                                    <td>All 4 members</td>
+                                    <td>Started designing the colour scheme and layout of the teams page</td>
+                                </tr>
+                                <tr>
+                                    <td>March 15th 2026</td>
+                                    <td>11:00 AM</td>
+                                    <td>Online(google meeting)</td>
+                                    <td>Progress check – template and navigation review</td>
+                                    <td>3 of 4 members</td>
+                                    <td>Demonstrated completed template and navigation bar, received feedback</td>
+                                </tr>
+                                <tr>
+                                    <td>March 20th 2026</td>
+                                    <td>3:00 PM</td>
+                                    <td>Online (Google meeting)</td>
+                                    <td>Integration – combining individual pages into shared structure</td>
+                                    <td>All 4 members</td>
+                                    <td>Integrated all team members' content pages into the shared template</td>
+                                </tr>
+                                <tr>
+                                    <td>March 24th 2026</td>
+                                    <td>10:00 AM</td>
+                                    <td>In-person</td>
+                                    <td>Testing – cross-browser testing and bug fixes</td>
+                                    <td>All 4 members</td>
+                                    <td>Fixed responsive layout issues and validated HTML on all pages</td>
+                                </tr>
+                                <tr>
+                                    <td>March 28th 2026</td>
+                                    <td>1:00 PM</td>
+                                    <td>In person</td>
+                                    <td>Final review – documentation, validation, and submission prep</td>
+                                    <td>All 4 members</td>
+                                    <td>Completed page editor documentation and validation screenshots</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </article>
 
-                <article class="editor-article" id="references-section">
-                    <h2>📚 References</h2>
-                    <ul>
-                        <li>W3C. (2024). <em>Scalable Vector Graphics (SVG) 2 Specification</em>. Available at: https://www.w3.org/TR/SVG2/</li>
-                        
-                        <li>W3C. (2024). <em>Markup Validation Service</em>. Available at: https://validator.w3.org/</li>
-                        <li>W3C. (2024). <em>CSS Validation Service</em>. Available at: https://jigsaw.w3.org/css-validator/</li>
-                        
-                        <li>United Nations. (2024). <em>Sustainable Development Goal 14: Life Below Water</em>. Available at: https://sdgs.un.org/goals/goal14</li>
-                        
-                        <li>JANET. (2024). <em>Acceptable Use Policy</em>. Jisc. Available at: https://community.jisc.ac.uk/library/acceptable-use-policy</li>
+                    <article class="editor-article" id="references-section">
+                        <h2>📚 References</h2>
+                        <ul>
+                            <li>W3C. (2024). <em>Scalable Vector Graphics (SVG) 2 Specification</em>. Available at:
+                                https://www.w3.org/TR/SVG2/</li>
 
-                        <li>W3Schools. (2025). <em>JavaScript HTML DOM Reference</em>. Refsnes Data. Available at: https://www.w3schools.com/js/js_htmldom.asp</li>
+                            <li>W3C. (2024). <em>Markup Validation Service</em>. Available at: https://validator.w3.org/
+                            </li>
+                            <li>W3C. (2024). <em>CSS Validation Service</em>. Available at:
+                                https://jigsaw.w3.org/css-validator/</li>
 
-                        <li>MDN Web Docs. (2024). <em>HTML and CSS Reference</em>. Mozilla. Available at: https://developer.mozilla.org</li>
+                            <li>United Nations. (2024). <em>Sustainable Development Goal 14: Life Below Water</em>.
+                                Available at: https://sdgs.un.org/goals/goal14</li>
 
-                        <<li>Emojipedia. (2025). <em>Beach with Umbrella Emoji Reference</em>. Zedge. Available at: https://emojipedia.org</li>
-    
-                    </ul>
-                </article>
+                            <li>JANET. (2024). <em>Acceptable Use Policy</em>. Jisc. Available at:
+                                https://community.jisc.ac.uk/library/acceptable-use-policy</li>
 
-            </div> </div> </main>
+                            <li>W3Schools. (2025). <em>JavaScript HTML DOM Reference</em>. Refsnes Data. Available at:
+                                https://www.w3schools.com/js/js_htmldom.asp</li>
+
+                            <li>MDN Web Docs. (2024). <em>HTML and CSS Reference</em>. Mozilla. Available at:
+                                https://developer.mozilla.org</li>
+
+                            <<li>Emojipedia. (2025). <em>Beach with Umbrella Emoji Reference</em>. Zedge. Available at:
+                                https://emojipedia.org</li>
+
+                        </ul>
+                    </article>
+
+            </div>
+        </div>
+    </main>
 
     <footer>
         <div class="footer-container">

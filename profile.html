@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -48,7 +49,7 @@
             height: 100%;
             width: 0%;
             transition: width 0.5s ease;
-                /* Smooth animation when width changes */
+            /* Smooth animation when width changes */
         }
 
         /* Styles for locked achievements/features and edit buttons */
@@ -63,7 +64,8 @@
 
         /* Edit button for profile sections - allows inline editing */
         .edit-btn {
-            display: none;/* Hidden until data is entered */
+            display: none;
+            /* Hidden until data is entered */
             background-color: white;
             color: #045889;
             border: 2px solid #045889;
@@ -88,13 +90,15 @@
             padding-bottom: 10px;
             border-bottom: 1px solid #caf0f8;
         }
+
         .button-group {
             display: flex;
             gap: 10px;
             /* Puts a clean 10px gap between all buttons */
             margin-top: 20px;
-            
+
         }
+
         /* Reset button - allows resetting profile data to default values */
         .reset-btn {
             padding: 12px 24px;
@@ -120,7 +124,8 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            z-index: -1;/* Behind all content */
+            z-index: -1;
+            /* Behind all content */
             opacity: 0.3;
         }
 
@@ -131,7 +136,7 @@
         }
 
         /* Skip button - allows users to mark incomplete sections as "skipped" */
-        .skip-btn{
+        .skip-btn {
             display: none;
             background-color: #ffd166;
             color: #333;
@@ -145,27 +150,27 @@
             background-color: #ffc333;
         }
 
-         /* Progress fraction display - shows completed prompts count */
-        #fraction{
-            color: #0077b6; 
+        /* Progress fraction display - shows completed prompts count */
+        #fraction {
+            color: #0077b6;
             margin-left: 10px;
         }
 
         /*motivational message */
-        #status-msg{
-            display:none; 
-            margin-top:14px; 
-            padding:12px; 
-            background-color:#f0faf9; 
-            border:1px solid #b2dbd9; 
-            border-radius:8px; 
-            font-size:14px;
+        #status-msg {
+            display: none;
+            margin-top: 14px;
+            padding: 12px;
+            background-color: #f0faf9;
+            border: 1px solid #b2dbd9;
+            border-radius: 8px;
+            font-size: 14px;
         }
-
     </style>
 </head>
+
 <body>
-<header>
+    <header>
         <div class="header-container">
             <div class="logo">
                 <img src="images/abstract-blue-swirling-vortex-digital-art-piece.png" alt="OceanGuard Logo"
@@ -173,15 +178,16 @@
             </div>
             <nav aria-label="Main Navigation">
                 <ul>
-                    <li><a href="home.html">Home</a></li>
+                    <li><a href="index.html">Home</a></li>
                     <li><a href="gallery.html">Gallery</a></li>
-                    <li><a href="ais.html" >Action Impact Simulator</a></li>
+                    <li><a href="ais.html">Action Impact Simulator</a></li>
                     <li><a href="feedback.html">Feedback</a></li>
                     <li><a href="team.html">Team</a></li>
                     <li><a href="sitemap.html">Sitemap</a></li>
                 </ul>
             </nav>
-            <a href="profile.html" class="profile-icon active" aria-label="User Profile" title="User Profile">👤 Profile</a>
+            <a href="profile.html" class="profile-icon active" aria-label="User Profile" title="User Profile">👤
+                Profile</a>
         </div>
     </header>
 
@@ -192,40 +198,42 @@
         </video>
         <section class="hero">
             <h1>Build Your Profile For A Better Ocean</h1>
-            <p >Complete these steps to showcase your contribution to marine conservation.</p>
+            <p>Complete these steps to showcase your contribution to marine conservation.</p>
         </section>
         <div class="profile-card">
 
-        <!-- Main profile card - contains all interactive elements -->
+            <!-- Main profile card - contains all interactive elements -->
             <div id="progress-container">
                 <p><strong>Profile Completion:<span id="precent">0%</span></strong>
-                <span id="fraction">0/9 prompts</span></p>
+                    <span id="fraction">0/9 prompts</span>
+                </p>
                 <div id="progress-bar-background">
                     <div id="progress-bar-fill"></div>
                 </div>
             </div>
             <!-- Step status labels showing completion status of each major section -->
-            <p id="step-labels" style="font-size: 13px; color: #666; margin-bottom: 20px;">Step 1: Not started | Step 2: Not started | Step 3: Not started</p>
+            <p id="step-labels" style="font-size: 13px; color: #666; margin-bottom: 20px;">Step 1: Not started | Step 2:
+                Not started | Step 3: Not started</p>
             <div class="button-group">
 
-                 <!-- Button group for main actions -->
+                <!-- Button group for main actions -->
                 <button class="btn" onclick="step1()">Personal Details</button>
                 <button class="btn" onclick="step2()">Marine Interests</button>
                 <button class="btn" onclick="step3()">Marine Actions</button>
-            <button class="reset-btn" onclick="resetAll()">Reset</button>
-            
+                <button class="reset-btn" onclick="resetAll()">Reset</button>
+
             </div>
             <!-- Instruction text guiding user to start with Personal Details -->
             <p><strong>Click on "Personal Details" button to start building your profile!</strong></p>
-            
-             <!-- Motivational status message container -->
+
+            <!-- Motivational status message container -->
             <p id="status-msg"></p>
         </div>
 
         <!-- STEP 1: Personal Details Section - collects user's basic information -->
         <div id="step1-personal" class="profile-section">
             <div class="section-top">
-                <h2>👤 Personal Details</h2>   <!--https://getemoji.com/-->
+                <h2>👤 Personal Details</h2> <!--https://getemoji.com/-->
                 <div class="top-right">
                     <button class="edit-btn" id="edit1" onclick="step1()">Edit</button>
                     <button class="skip-btn" id="skip1" onclick="skippedStep1()">Complete Skipped</button>
@@ -268,7 +276,7 @@
         </div>
     </main>
 
-   
+
 
     <script>
         //Global variable
@@ -276,16 +284,16 @@
         let count2 = 0;// Count of completed prompts in Marine Interests step
         let count3 = 0;// Count of completed prompts in Marine Actions step
 
-         /**
-         * STEP 1: Personal Details
-         * Collects user's name, age, and email via prompts
-         * Updates display and progress tracking
-         */
-        function step1(){
+        /**
+        * STEP 1: Personal Details
+        * Collects user's name, age, and email via prompts
+        * Updates display and progress tracking
+        */
+        function step1() {
             document.getElementById("step1-personal").style.display = "block";
-           
-        
-            let skipCount1=0;
+
+
+            let skipCount1 = 0;
             let userName = prompt("Step 1 of 3: What is your name?");
             let userAge = prompt("Step 2 of 3: What is your age?");
             let userEmail = prompt("Step 3 of 3: What is your email?");
@@ -293,36 +301,36 @@
             // Process name input
             if (userName != "" && userName != null) {
                 document.getElementById("name").innerHTML = "<b>Name:</b> " + userName;
-                count1+=1;
+                count1 += 1;
             } else {
                 document.getElementById("name").innerHTML = "";
-                skipCount1+=1;
+                skipCount1 += 1;
             }
 
             // Process age input
             if (userAge != "" && userAge != null) {
                 document.getElementById("age").innerHTML = "<b>Age:</b> " + userAge;
-                count1+=1;
+                count1 += 1;
             } else {
                 document.getElementById("age").innerHTML = "";
-                skipCount1+=1;
+                skipCount1 += 1;
             }
 
             // Process email input
             if (userEmail != "" && userEmail != null) {
                 document.getElementById("email").innerHTML = "<b>Email:</b> " + userEmail;
-                count1+=1;
+                count1 += 1;
             } else {
                 document.getElementById("email").innerHTML = "";
-                skipCount1+=1;
+                skipCount1 += 1;
             }
 
             // Update lock status based on completion
-            if(skipCount1==0){
+            if (skipCount1 == 0) {
                 document.getElementById("lock1").innerHTML = "completed &check;";
                 document.getElementById("lock1").style.backgroundColor = "#d4f0ee";
                 document.getElementById("lock1").style.color = "#0e7c7b";
-            }else{
+            } else {
                 document.getElementById("lock1").innerHTML = "Information skipped";
                 document.getElementById("lock1").style.backgroundColor = "#fff0cc";
                 document.getElementById("lock1").style.color = "#b07000";
@@ -338,54 +346,54 @@
             alert("Step 1 saved! Now click the 'Marine Interests' button to continue.");
         }
 
-         /**
-          * STEP 2: Marine Interests
-          * Collects user's marine interests, favorite species, and experience
-          */
-        function step2(){
+        /**
+         * STEP 2: Marine Interests
+         * Collects user's marine interests, favorite species, and experience
+         */
+        function step2() {
             // Show the interests section
             document.getElementById("step2-interest").style.display = "block";
-            
-            let skipCount2=0;
+
+            let skipCount2 = 0;
             // Collect marine interests
-            let userInterest=prompt("Step 1 of 3: What is your main marine interest(coral-reef....)?(Leave blank to skip)");
+            let userInterest = prompt("Step 1 of 3: What is your main marine interest(coral-reef....)?(Leave blank to skip)");
             let userSpecies = prompt("Step 2 of 3: What is your favorite marine species?(Leave blank to skip)");
             let userExperience = prompt("Step 3 of 3: How many years have you been interested in marine conservation?(Leave blank to skip)");
 
 
             // Process interest input
-            if(userInterest !="" && userInterest !=null){
-                document.getElementById("interest").innerHTML="<b>Habitat:</b> " + userInterest;
-                count2+=1;
-            }else{
-                document.getElementById("interest").innerHTML= "";
-                skipCount2+=1;
+            if (userInterest != "" && userInterest != null) {
+                document.getElementById("interest").innerHTML = "<b>Habitat:</b> " + userInterest;
+                count2 += 1;
+            } else {
+                document.getElementById("interest").innerHTML = "";
+                skipCount2 += 1;
             }
 
             // Process species input
-            if( userSpecies!="" &&  userSpecies!=null){
-                document.getElementById("species").innerHTML="<b>Species:</b> " + userSpecies;
-                count2+=1;
-            }else{
-                document.getElementById("species").innerHTML= "";
-                skipCount2+=1;
+            if (userSpecies != "" && userSpecies != null) {
+                document.getElementById("species").innerHTML = "<b>Species:</b> " + userSpecies;
+                count2 += 1;
+            } else {
+                document.getElementById("species").innerHTML = "";
+                skipCount2 += 1;
             }
 
             // Process experience input
-            if( userExperience!="" &&  userExperience!=null){
-                document.getElementById("experience").innerHTML="<b>Experience:</b> " + userExperience;
-                count2+=1;
-            }else{
-                document.getElementById("experience").innerHTML= "";
-                skipCount2+=1;
+            if (userExperience != "" && userExperience != null) {
+                document.getElementById("experience").innerHTML = "<b>Experience:</b> " + userExperience;
+                count2 += 1;
+            } else {
+                document.getElementById("experience").innerHTML = "";
+                skipCount2 += 1;
             }
 
             // Update lock status
-            if(skipCount2==0){
+            if (skipCount2 == 0) {
                 document.getElementById("lock2").innerHTML = "completed &check;";
                 document.getElementById("lock2").style.backgroundColor = "#d4f0ee";
                 document.getElementById("lock2").style.color = "#0e7c7b";
-            }else{
+            } else {
                 document.getElementById("lock2").innerHTML = "Information skipped";
                 document.getElementById("lock2").style.backgroundColor = "#fff0cc";
                 document.getElementById("lock2").style.color = "#b07000";
@@ -393,7 +401,7 @@
             document.getElementById("edit2").style.display = "inline-block";
             document.getElementById("skip2").style.display = "inline-block";
             updateProgress(2);
-            
+
             alert("Step 2 saved! Now click the 'Marine Actions' button to continue.");
         }
 
@@ -402,7 +410,7 @@
          * Collects user's recent actions, donations, and future goals
          */
 
-        function step3(){
+        function step3() {
 
             // Show the actions section
             document.getElementById("step3-action").style.display = "block";
@@ -411,49 +419,49 @@
             let userDonation = prompt("Step 2 of 3: Have you donated to a marine charity?(Leave blank to skip)");
             let userFutureGoal = prompt("Step 3 of 3: What is your goal for next year?(Leave blank to skip)");
 
-             // Process action input
-            if(userAction!="" &&   userAction!=null){
-                document.getElementById("action").innerHTML="<b>Action:</b> " + userAction;
-                count3+=1;
-            }else{
-                document.getElementById("action").innerHTML= "";
-                skipCount3+=1;
+            // Process action input
+            if (userAction != "" && userAction != null) {
+                document.getElementById("action").innerHTML = "<b>Action:</b> " + userAction;
+                count3 += 1;
+            } else {
+                document.getElementById("action").innerHTML = "";
+                skipCount3 += 1;
             }
 
-             // Process donation input
-            if(  userDonation!="" &&   userDonation!=null){
-                document.getElementById("donation").innerHTML="<b>Donation:</b> " + userDonation;
-                count3+=1;
-            }else{
-                document.getElementById("donation").innerHTML= "";
-                skipCount3+=1;
+            // Process donation input
+            if (userDonation != "" && userDonation != null) {
+                document.getElementById("donation").innerHTML = "<b>Donation:</b> " + userDonation;
+                count3 += 1;
+            } else {
+                document.getElementById("donation").innerHTML = "";
+                skipCount3 += 1;
             }
 
             // Process future goal input
-            if( userFutureGoal!="" &&  userFutureGoal!=null){
-                document.getElementById("futureGoal").innerHTML="<b>Future Goal:</b> " + userFutureGoal;
-                count3+=1;
-            }else{
-                document.getElementById("futureGoal").innerHTML= "";
-                skipCount3+=1;
+            if (userFutureGoal != "" && userFutureGoal != null) {
+                document.getElementById("futureGoal").innerHTML = "<b>Future Goal:</b> " + userFutureGoal;
+                count3 += 1;
+            } else {
+                document.getElementById("futureGoal").innerHTML = "";
+                skipCount3 += 1;
             }
 
-             // Update lock status
-            if(skipCount3==0){
+            // Update lock status
+            if (skipCount3 == 0) {
                 document.getElementById("lock3").innerHTML = "completed &check;";
                 document.getElementById("lock3").style.backgroundColor = "#d4f0ee";
                 document.getElementById("lock3").style.color = "#0e7c7b";
-            }else{
+            } else {
                 document.getElementById("lock3").innerHTML = "Information skipped";
                 document.getElementById("lock3").style.backgroundColor = "#fff0cc";
                 document.getElementById("lock3").style.color = "#b07000";
             }
-             // Show edit and skip buttons
+            // Show edit and skip buttons
             document.getElementById("edit3").style.display = "inline-block";
             document.getElementById("skip3").style.display = "inline-block";
             updateProgress(3);
 
-            
+
         }
 
         /**
@@ -464,35 +472,35 @@
 
 
         function skippedStep1() {
-             // Check Name
+            // Check Name
             if (document.getElementById("name").innerHTML === "") {
                 let nameVal = prompt("Missing:What is your Name?");
-                if (nameVal) { 
-                    document.getElementById("name").innerHTML = "<b>Name:</b> " + nameVal; 
-                    count1++; 
+                if (nameVal) {
+                    document.getElementById("name").innerHTML = "<b>Name:</b> " + nameVal;
+                    count1++;
                 }
             }
             // Check Age
             if (document.getElementById("age").innerHTML === "") {
                 let ageVal = prompt("Missing:What is your Age?");
-                if (ageVal) { 
-                    document.getElementById("age").innerHTML = "<b>Age:</b> " + ageVal; 
-                    count1++; 
+                if (ageVal) {
+                    document.getElementById("age").innerHTML = "<b>Age:</b> " + ageVal;
+                    count1++;
                 }
             }
             // Check Email
             if (document.getElementById("email").innerHTML === "") {
                 let emailVal = prompt("Missing:What is your Email?");
-                if (emailVal) { 
-                    document.getElementById("email").innerHTML = "<b>Email:</b> " + emailVal; 
-                    count1++; 
+                if (emailVal) {
+                    document.getElementById("email").innerHTML = "<b>Email:</b> " + emailVal;
+                    count1++;
                 }
             }
             let name1 = document.getElementById("name").innerHTML;
             let age2 = document.getElementById("age").innerHTML;
             let email2 = document.getElementById("email").innerHTML;
 
-            if (name1 !== "" &&  age2 !== "" && email2 !== "") {
+            if (name1 !== "" && age2 !== "" && email2 !== "") {
                 document.getElementById("lock1").innerHTML = "completed &check;";
                 document.getElementById("lock1").style.backgroundColor = "#d4f0ee";
                 document.getElementById("lock1").style.color = "#0e7c7b";
@@ -502,38 +510,38 @@
             }
             updateProgress(1);
         }
-        
-                
-            /**
-             * SKIP FUNCTION - Step 2
-             * Completes missing information in Marine Interests section
-             */
+
+
+        /**
+         * SKIP FUNCTION - Step 2
+         * Completes missing information in Marine Interests section
+         */
         function skippedStep2() {
-           // Check and fill missing interest
+            // Check and fill missing interest
             if (document.getElementById("interest").innerHTML === "") {
                 let interestVal = prompt("Missing:What is your Interest?");
-                if (interestVal) { 
-                    document.getElementById("interest").innerHTML = "<b>Interest:</b> " + interestVal; 
-                    count2++; 
+                if (interestVal) {
+                    document.getElementById("interest").innerHTML = "<b>Interest:</b> " + interestVal;
+                    count2++;
                 }
             }
             // Check Species
             if (document.getElementById("species").innerHTML === "") {
                 let speciesVal = prompt("Missing:What is your Species?");
-                if (speciesVal) { 
-                    document.getElementById("species").innerHTML = "<b>Species:</b> " + speciesVal; 
-                    count2++; 
+                if (speciesVal) {
+                    document.getElementById("species").innerHTML = "<b>Species:</b> " + speciesVal;
+                    count2++;
                 }
             }
             // Check Experience
             if (document.getElementById("experience").innerHTML === "") {
                 let experienceVal = prompt("Missing:What is your  Experience?");
-                if (experienceVal) { 
-                    document.getElementById("experience").innerHTML = "<b>Experience:</b> " + experienceVal; 
-                    count2++; 
+                if (experienceVal) {
+                    document.getElementById("experience").innerHTML = "<b>Experience:</b> " + experienceVal;
+                    count2++;
                 }
             }
-             // Check if all fields are now complete
+            // Check if all fields are now complete
             let interest2 = document.getElementById("interest").innerHTML;
             let species2 = document.getElementById("species").innerHTML;
             let experience2 = document.getElementById("experience").innerHTML;
@@ -547,40 +555,40 @@
                 // HIDE THE BUTTON
                 document.getElementById("skip2").style.display = "none";
             }
-            
+
             updateProgress(2);
         }
-    
-         /**
-         * SKIP FUNCTION - Step 3
-         * Completes missing information in Marine Actions section
-         */
+
+        /**
+        * SKIP FUNCTION - Step 3
+        * Completes missing information in Marine Actions section
+        */
         function skippedStep3() {
-             // Check and fill missing actions
+            // Check and fill missing actions
             if (document.getElementById("action").innerHTML === "") {
                 let actionVal = prompt("Missing:What is your Action?");
-                if (actionVal) { 
-                    document.getElementById("action").innerHTML = "<b>Action:</b> " + actionVal; 
-                    count3++; 
+                if (actionVal) {
+                    document.getElementById("action").innerHTML = "<b>Action:</b> " + actionVal;
+                    count3++;
                 }
             }
             // Check Donation
             if (document.getElementById("donation").innerHTML === "") {
                 let donationVal = prompt("Missing:What is your missing Donation?");
-                if (donationVal) { 
-                    document.getElementById("donation").innerHTML = "<b>Donation:</b> " + donationVal; 
-                    count3++; 
+                if (donationVal) {
+                    document.getElementById("donation").innerHTML = "<b>Donation:</b> " + donationVal;
+                    count3++;
                 }
             }
             // Check Future Goal
             if (document.getElementById("futureGoal").innerHTML === "") {
                 let goalVal = prompt("Missing:What is your missing Future Goal?");
-                if (goalVal) { 
-                    document.getElementById("futureGoal").innerHTML = "<b>Goal:</b> " + goalVal; 
-                    count3++; 
+                if (goalVal) {
+                    document.getElementById("futureGoal").innerHTML = "<b>Goal:</b> " + goalVal;
+                    count3++;
                 }
             }
-             // Update status if all fields completed
+            // Update status if all fields completed
             let action2 = document.getElementById("action").innerHTML;
             let donation2 = document.getElementById("donation").innerHTML;
             let goal2 = document.getElementById("futureGoal").innerHTML;
@@ -591,41 +599,41 @@
                 document.getElementById("lock3").style.color = "#0e7c7b";
 
                 // HIDE THE BUTTON
-            document.getElementById("skip3").style.display = "none";
+                document.getElementById("skip3").style.display = "none";
             }
-            
+
             updateProgress(3);
         }
 
-            /**
-             * UPDATE PROGRESS FUNCTION
-             * Calculates overall profile completion percentage and updates UI
-             * @param {number} stepNumber - The step that was just completed (1, 2, or 3)
-             */
+        /**
+         * UPDATE PROGRESS FUNCTION
+         * Calculates overall profile completion percentage and updates UI
+         * @param {number} stepNumber - The step that was just completed (1, 2, or 3)
+         */
 
-        function updateProgress(stepNumber){
+        function updateProgress(stepNumber) {
             let totalCount = count1 + count2 + count3;
-             // Calculate percentage and round to nearest integer
-            let currentPercent = Math.round((totalCount/9)*100);
+            // Calculate percentage and round to nearest integer
+            let currentPercent = Math.round((totalCount / 9) * 100);
             //Update the fraction (e.g., 3/9)
-            document.getElementById("fraction").innerHTML =  totalCount + "/9 prompts completed";
+            document.getElementById("fraction").innerHTML = totalCount + "/9 prompts completed";
             // Update percentage display
             document.getElementById("precent").innerHTML = currentPercent + "%";
-           // Animate progress bar width
+            // Animate progress bar width
             document.getElementById("progress-bar-fill").style.width = currentPercent + "%";
 
             // Update step status labels with color coding
-            let s1 = (count1 > 0) ? "<span style='color:#0e7c7b; font-weight:bold;'>Step 1: Done</span>"  : "Step 1: Not started";
-            let s2 = (count2 > 0) ? "<span style='color:#0e7c7b; font-weight:bold;'>Step 2: Done</span>"  : "Step 2: Not started";
-            let s3 = (count3 > 0) ? "<span style='color:#0e7c7b; font-weight:bold;'>Step 3: Done</span>"  : "Step 3: Not started";
+            let s1 = (count1 > 0) ? "<span style='color:#0e7c7b; font-weight:bold;'>Step 1: Done</span>" : "Step 1: Not started";
+            let s2 = (count2 > 0) ? "<span style='color:#0e7c7b; font-weight:bold;'>Step 2: Done</span>" : "Step 2: Not started";
+            let s3 = (count3 > 0) ? "<span style='color:#0e7c7b; font-weight:bold;'>Step 3: Done</span>" : "Step 3: Not started";
             document.getElementById("step-labels").innerHTML = s1 + " | " + s2 + " | " + s3;
 
-             // Show motivational message container
+            // Show motivational message container
             document.getElementById("status-msg").style.display = "block";
 
             if (currentPercent == 100) {
                 document.getElementById("status-msg").innerHTML = "Profile 100% completed!!🎉"; //https://emojipedia.org/party-popper
-            } else if (stepNumber == 2){
+            } else if (stepNumber == 2) {
                 document.getElementById("status-msg").innerHTML = "Great work! 2 steps done. One more to go!";
             } else if (stepNumber == 1) {
                 document.getElementById("status-msg").innerHTML = "Good.Keep going!💪";
@@ -639,8 +647,8 @@
         }
     </script>
 
-     <!-- ===== Footer ===== -->
-     <footer>
+    <!-- ===== Footer ===== -->
+    <footer>
         <div class="footer-container">
             <!-- Left Side: Logo + SDG Text -->
             <div class="footer-brand">
@@ -674,4 +682,5 @@
         </div>
     </footer>
 </body>
+
 </html>
